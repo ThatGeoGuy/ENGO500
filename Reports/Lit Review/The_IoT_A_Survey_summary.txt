@@ -6,19 +6,19 @@ Provides readers with:  decriptions of different visions for the IoT paradigm fr
 
 Many different visions, some based on "Things" side, some based on "Internet" side, some based on "semantic's side".
 
-"The object unique addressing and the representation and storing of the exchanged information become the most challenging issues, bringing directly to a third, ‘‘Semantic oriented”, perspective of IoT." pp. 2788
+"The object unique addressing and the representation and storing of the exchanged information become the most challenging issues, bringing directly to a third, ï¿½ï¿½Semantic orientedï¿½, perspective of IoT." pp. 2788
 
 The first definition of IoT comes from Auto-ID Labs is a "Things" based definition, mainly pertaining to networked RFIDs. (Auto-Id Labs, <http://www.autoidlabs.org/>.) Focused on creating an RFID standard called the Electronic Product Code (EPC) to support widespread used of RFID in trading. 
 
 Authors of [7] (below) claim that RFID is main driving force for IoT support in the business community, with a wide variety of technologies to follow.
 
-A definition which encapsulates the IoT involving more than just RFID has been defined by "CASAGRAS [11]. Its members focus on ‘‘a world where things can automatically communicate to computers and each other providing services to the benefit of the human kind”. CASAGRAS consortium (i) proposes a vision of IoT as a global infrastructure which connects both virtual and physical generic objects and (ii) highlights the importance of including existing and evolving Internet and network developments in this vision." pp2789 This definition is a bridge between "things" and "internet" based definitions.
+A definition which encapsulates the IoT involving more than just RFID has been defined by "CASAGRAS [11]. Its members focus on ï¿½ï¿½a world where things can automatically communicate to computers and each other providing services to the benefit of the human kindï¿½. CASAGRAS consortium (i) proposes a vision of IoT as a global infrastructure which connects both virtual and physical generic objects and (ii) highlights the importance of including existing and evolving Internet and network developments in this vision." pp2789 This definition is a bridge between "things" and "internet" based definitions.
 
 "Internet" based definitions try to deal with the network technology to connect smart objects. These seem to compete with the OGC standard that Dr. Liang is developing. They include:
 
 "IPSO (IP for Smart Objects) Alliance [11], a forum formed in September 2008 by 25 founding companies to promote the Internet Protocol as the network technology for connecting Smart Objects around the world. According to the IPSO vision, the IP stack is a light protocol that already connects a huge amount of communicating devices and runs on tiny and battery operated embedded devices." pp. 2790
 
-"Internet Ø [13] follows a similar approach of reducing the complexity of the IP stack to achieve a protocol designed to route ‘‘IP over anything”." pp. 2790
+"Internet ï¿½ [13] follows a similar approach of reducing the complexity of the IP stack to achieve a protocol designed to route ï¿½ï¿½IP over anythingï¿½." pp. 2790
 
 
 Additionally there is the "semantic" oriented definitions, which focus on managing/storing/organizing/searching the (projected) extremely large number of devices that will be networked.
@@ -61,8 +61,8 @@ Transpostation and logistics, Healthcare, Smart environment (home, office, plant
 Page 2784-2797 includes many examples in each of these 4 domains.
 Transportation and logistics: Logistics, Assited driving, Mobile ticketing, environmental monitoring, augmented maps
 Healthcare: Tracking, ID & authentiction, Data collection, sensing
-Smart Environments: Comfotable home/office, industrial plants, Smart musuem & gym
-Person/Social: Netowkring, Historical queries, Losses, Thefts
+Smart Environments: Comfortable home/office, industrial plants, Smart musuem & gym
+Person/Social: Networking, Historical queries, Losses, Thefts
 Futuristic: Robot Taxi, City information model, Enhanced game room
 
 **Section 5** Open issues, overview
@@ -127,15 +127,15 @@ As a result, only data that needs to be collected to perform the task at hand sh
 "making a full interoperability of interconnected devices..., providing them with an always higher degree of smartness by enabling their adaptation and autonomous behavious, while guaranteeing trust, privacy, and security" pp.2788
 
 -What is IoT?
-‘‘a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols” [3]
+ï¿½ï¿½a world-wide network of interconnected objects uniquely addressable, based on standard communication protocolsï¿½ [3]
 
 **References**
 
 [3] INFSO D.4 Networked Enterprise & RFID INFSO G.2 Micro & Nanosystems, in: Co-operation with the Working Group RFID of the ETP EPOSS, Internet of Things in 2020, Roadmap for the Future, Version 1.1, 27 May 2008.
 
-[7] M. Presser, A. Gluhak, The Internet of Things: Connecting the Real World with the Digital World, EURESCOM mess@ge – The Magazine for Telecom Insiders, vol. 2, 2009, <http://www.eurescom.eu/message>.
+[7] M. Presser, A. Gluhak, The Internet of Things: Connecting the Real World with the Digital World, EURESCOM mess@ge ï¿½ The Magazine for Telecom Insiders, vol. 2, 2009, <http://www.eurescom.eu/message>.
 
-[8] M. Botterman, for the European Commission Information Society and Media Directorate General, Networked Enterprise & RFID Unit – D4, Internet of Things: An Early Reality of the Future Internet, Report of the Internet of Things Workshop, Prague, Czech Republic, May
+[8] M. Botterman, for the European Commission Information Society and Media Directorate General, Networked Enterprise & RFID Unit ï¿½ D4, Internet of Things: An Early Reality of the Future Internet, Report of the Internet of Things Workshop, Prague, Czech Republic, May
 2009.
 
 [11] A. Dunkels, J.P. Vasseur, IP for Smart Objects, Internet Protocol for
@@ -143,7 +143,7 @@ Smart Objects (IPSO) Alliance, White Paper #1, September 2008,
 <http://www.ipso-alliance.org>.
 
 [13] N. Gershenfeld, R. Krikorian, D. Cohen, The internet of things,
-Scientific American 291 (4) (2004) 76–81.
+Scientific American 291 (4) (2004) 76ï¿½81.
 
 [53] N. Kushalnagar, G. Montenegro, C. Schumacher, IPv6 Over Low-
 Power Wireless Personal Area Networks (6LoWPANs): Overview,
