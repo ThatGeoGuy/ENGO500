@@ -1,0 +1,154 @@
+**Summary**
+
+Provides readers with:  decriptions of different visions for the IoT paradigm from different scientific communities(section 2),  reviews the enabling technonolgies (section 3) and shows how the spread of IoT technology will benefit everyday life (section 4), and offers and analysis of upcoming research issues(section 5).
+
+**Section 2** Definitions of IoT
+
+Many different visions, some based on "Things" side, some based on "Internet" side, some based on "semantic's side".
+
+"The object unique addressing and the representation and storing of the exchanged information become the most challenging issues, bringing directly to a third, ��Semantic oriented�, perspective of IoT." pp. 2788
+
+The first definition of IoT comes from Auto-ID Labs is a "Things" based definition, mainly pertaining to networked RFIDs. (Auto-Id Labs, <http://www.autoidlabs.org/>.) Focused on creating an RFID standard called the Electronic Product Code (EPC) to support widespread used of RFID in trading. 
+
+Authors of [7] (below) claim that RFID is main driving force for IoT support in the business community, with a wide variety of technologies to follow.
+
+A definition which encapsulates the IoT involving more than just RFID has been defined by "CASAGRAS [11]. Its members focus on ��a world where things can automatically communicate to computers and each other providing services to the benefit of the human kind�. CASAGRAS consortium (i) proposes a vision of IoT as a global infrastructure which connects both virtual and physical generic objects and (ii) highlights the importance of including existing and evolving Internet and network developments in this vision." pp2789 This definition is a bridge between "things" and "internet" based definitions.
+
+"Internet" based definitions try to deal with the network technology to connect smart objects. These seem to compete with the OGC standard that Dr. Liang is developing. They include:
+
+"IPSO (IP for Smart Objects) Alliance [11], a forum formed in September 2008 by 25 founding companies to promote the Internet Protocol as the network technology for connecting Smart Objects around the world. According to the IPSO vision, the IP stack is a light protocol that already connects a huge amount of communicating devices and runs on tiny and battery operated embedded devices." pp. 2790
+
+"Internet � [13] follows a similar approach of reducing the complexity of the IP stack to achieve a protocol designed to route ��IP over anything�." pp. 2790
+
+
+Additionally there is the "semantic" oriented definitions, which focus on managing/storing/organizing/searching the (projected) extremely large number of devices that will be networked.
+
+**Section 3** Enabling Technologies
+
+3.1, Technologies:
+
+Reductions in Size, weight, energy consumpion and cost of sensors is leading to an er where everything can be connected. 
+
+RFID 
+- Passive have no power supply, use energy from query signal by induction.
+- Semi-passive and active have power supplies
+
+Combining RFID with sensor networks will play crucial role in IoT. Can monitor different atributes about uniquely identified objects using a number (can be very high with low cost sensors) of nodes to report changes.
+Important factors in design are: energy efficiency, scalibility, reliablility, and robustness in the case that a sensor fails.
+
+Wireless sensor networks are based on IEEE 802.15.4 standard, low power low bitrate communication.
+Diffuculties in networking include: Scare availability of IP addresses, Packet size of 802.15.4 is 127 bytes, sensors in sleep mode need to re-aquire an IP address.
+
+WISPs hope to act like RFIDs, harnessing power from the readers querying signal offering identification and sensing information
+
+3.2, Middleware:
+
+Software layer between technoligcal level and application level, to remove low level obstructions to programmers. IoT often follow the Service Oriented Architecture (SOA) approach. This means to decompose complex systems into an ecosystem of well defined components. Composed of (top down order):
+
+	Service composition: No notion of devices, only visible assets and services.
+	Service Management: Provides the main functions that are available for each object to manage an IoT scenario.
+	Object Abstraction: A wrapping layer conisisting of the web interface exposing the methods available to control commuincation (incoming/outgoing messages). The sub layer converts device specific commands to work with the service methods. Sometimes these are embedded web servers, sometimes provided by a web-service by proxy.
+	Privacy: Middleware must include functions to protect users and sustain trust
+
+Other alternatives to the SOA approach include: 
+Open source RFID service standards: Fosstrak <http://www.fosstrak.org>, amoung others pp. 2793
+
+**Section 4** Applications
+
+Applications exist for many domains which can be grouped into the following:
+Transpostation and logistics, Healthcare, Smart environment (home, office, plant), Personal/Social. These domains include "stupid" technology that could potentially be netowrked to improve quality of life.
+
+Page 2784-2797 includes many examples in each of these 4 domains.
+Transportation and logistics: Logistics, Assited driving, Mobile ticketing, environmental monitoring, augmented maps
+Healthcare: Tracking, ID & authentiction, Data collection, sensing
+Smart Environments: Comfortable home/office, industrial plants, Smart musuem & gym
+Person/Social: Networking, Historical queries, Losses, Thefts
+Futuristic: Robot Taxi, City information model, Enhanced game room
+
+**Section 5** Open issues, overview
+
+Standards: There are several standardization efforts but they are not integrated in a comprehensive framework
+
+Mobility support: There are several proposals for object addressing but none for mobility support in the IoT scenario, where scalability and adaptability to heterogeneous technologies represent crucial problems
+
+Naming Object: Name Servers (ONS) are needed to map a reference to a description of a specific object and the related identifier, and vice versa
+
+Transport protocol: Existing transport protocols fail in the IoT scenarios since their connection setup and congestion control mechanisms may be useless; furthermore, they require excessive buffering to be implemented in objects
+
+Traffic characterizationand QoS support: The IoT will generate data traffic with patterns that are expected to be significantly different from those observed in the current Internet. Accordingly, it will also be necessary to define new QoS requirements
+and support schemes
+
+Authentication: Authentication is difficult in the IoT as it requires appropriate authentication infrastructures that will not be available in IoT scenarios. Furthermore, things have scarce resources when compared to current communication and computing devices. Also man-in-the-middle attack is a serious problem
+
+Data integrity: This is usually ensured by protecting data with passwords. However, the password lengths supported by IoT technologies are in most cases too short to provide strong levels of protection
+
+Privacy: A lot of private information about a person can be collected without the person being aware. Control on the diffusion of all such information is impossible with current techniques
+
+Digital forgetting: All the information collected about a person by the IoT may be retained indefinitely as the cost of storage decreases. Also data mining techniques can be used to easily retrieve any information even after several years
+
+----
+
+**Section 5** details:
+
+*Standardization activity:
+
+Fragmented efforts of standardization, mostly RFID concepts. pp. 2798 text & table 3.
+
+In terms of IoT, the "European Telecommunications Standards Institute" has been creating standards, including a Machine to Machine (M2M) committee which is decribed as being "M2M is a real leading paradigm towards IoT, but there is very little standardization for it, while the multiplicity of the solutions on the market use standard Internet, Cellular, and Web technologies."
+
+IPV6 over low-power wireless personal area networks (6Low-Pan) is being developed by IETF to define a set of protocols to integrate sensor nodes and IPv6 networks. Also being worked on is "Routing over Loew power and Lossy networks (ROLL)". [53]
+
+*Addressing & Networking issues:
+
+A very high number of devices will need to be addressed. IPv6 will increase the number of addresses to 12^38 which should be enough, but RFID tags use 64-96 bits while IPv6 addresses are 128 bit. Solutions exist for 64 bit tags but 96 bit tags will require a netowrk element called an agent to map the RFID id to 64 bits. This solution does not deal with mobility of tags.
+
+Addresses are obtained by queying a DNS server, whearas in IoT, communication is likley to be between objects rather than hosts, so a Object Name Service is needed. This will connect a description (URL) to the object and RFID tag. This will operate in both directions, give description based on RFID & vice-versa which will require a new service (Object code mapping service).
+
+TCP is inadequate for the IoT due to connection setup and congestion control because the amount of data being exchaged is very small. Additionally, data buffering is required on both sides of the comm, which could be too costly for batteryless objects.
+
+Traffic will be characterized differently which network providers need to be able to model to expand their infastructures.
+
+*Privacy and security:
+
+"following the announcement by the Italian retailer Benetton on the plan to tag a complete line of clothes (around 15 million RFIDs) has been the first, clear confirmation of this
+mistrust towards the use that will be done of the data collected by the IoT technologies [76].
+
+Cannot implement security measures due to low energy and computing power, cannot usually make use of authentication, especially when many sensors are involved. Crypographic algorithms use large amounds of resources.
+Suseptible to man in the middle attacks due to wireless nature, hinders data integrity.
+In case of RFID, readers are being developed that transmit pseudo-noise.
+
+A huge amount of possibilities for personal data to be collected will exist, which will make it impossible for individuals to control how much of their information is being disclosed. 
+Storage is extremely cheap so collected data may never "expire".
+As a result, only data that needs to be collected to perform the task at hand should be collected, and only for as long as it is needed. This cannot be garunteed.
+
+**Useful quotes**
+
+-Purpose
+"making a full interoperability of interconnected devices..., providing them with an always higher degree of smartness by enabling their adaptation and autonomous behavious, while guaranteeing trust, privacy, and security" pp.2788
+
+-What is IoT?
+��a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols� [3]
+
+**References**
+
+[3] INFSO D.4 Networked Enterprise & RFID INFSO G.2 Micro & Nanosystems, in: Co-operation with the Working Group RFID of the ETP EPOSS, Internet of Things in 2020, Roadmap for the Future, Version 1.1, 27 May 2008.
+
+[7] M. Presser, A. Gluhak, The Internet of Things: Connecting the Real World with the Digital World, EURESCOM mess@ge � The Magazine for Telecom Insiders, vol. 2, 2009, <http://www.eurescom.eu/message>.
+
+[8] M. Botterman, for the European Commission Information Society and Media Directorate General, Networked Enterprise & RFID Unit � D4, Internet of Things: An Early Reality of the Future Internet, Report of the Internet of Things Workshop, Prague, Czech Republic, May
+2009.
+
+[11] A. Dunkels, J.P. Vasseur, IP for Smart Objects, Internet Protocol for
+Smart Objects (IPSO) Alliance, White Paper #1, September 2008,
+<http://www.ipso-alliance.org>.
+
+[13] N. Gershenfeld, R. Krikorian, D. Cohen, The internet of things,
+Scientific American 291 (4) (2004) 76�81.
+
+[53] N. Kushalnagar, G. Montenegro, C. Schumacher, IPv6 Over Low-
+Power Wireless Personal Area Networks (6LoWPANs): Overview,
+Assumptions, Problem Statement, and Goals, IETF RFC 4919, August
+2007.
+
+[76] Benetton to tag 15 million items, RFID Journal (March) (2003),
+<http://www.rfidjournal.com/article/articleview/344/1/1/>.
