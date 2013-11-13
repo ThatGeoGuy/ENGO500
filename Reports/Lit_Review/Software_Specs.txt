@@ -1,0 +1,40 @@
+# Software Specifications
+
+For any project involving software, it is important to identify our goals and projected results. As mentioned in previous sections, we found that there is a clear advantage for store owners and retailers who wish to know more about how their store is faced, as well as the distribution and pattern of customer positions within the retail outlet. It has also been shown by Ko [1] that this concept is not strictly limited to supermarket retailers, but can be expanded into other industries such as construction or site management in tracking and maintaining appropriate stock for work to be completed. However, despite similarities in the concepts embodied in the applications at hand, it is important to note the distinction of our project, which focuses on sensor integration for the Internet of Things (IoT), whereas most previous projects use RFID tag tracking to accomplish the same task [1,]. 
+The advantage of sensor-based solutions can primarily be seen in the software aspect of our solution. While RFID tags have been popular in the past, some disadvantages associated with the technique are:
+
+1. RFID signals are very noisy and require objects to perfectly oriented with respect to the sensor in order to improve the overall accuracy [2].
+2. Unlike direct sensors, or remote sensors, direct information cannot be obtained without computational overhead. For example, in [1] it is shown that storage of construction materials required additional computation such as the gradient descent method. On the other hand, weight sensors and magnetometers can detect item positions (on or off the shelf) directly, which provides a much faster solution. 
+3. RFID chips are cheap and often can be disposable, which would require new, unique chips for each type of product. In the context of a supermarket, this can add up fast in both time and direct cost despite the price of an individual RFID chip being very low. On the other hand, web-enabled sensors require a single set up, and can be modified remotely (over the web), as opposed to requiring direct modification or change of the RFID chips themselves. In practice, this means that using sensors makes the entire system more robust to change, as a software update won't require an entire overhaul or re-indexing of the store. 
+4. Unlike RFID tags, sensors can be built in additively, so more sensors or improved sensors can be added as time allows. In this scenario, we find that RFID tags are one method of tracking stock, but current RFID based systems cannot integrate future solutions and methods to better or more accurately assess changing problems.
+5. RFID tags cannot provide any insight into differences between customers shopping. At best they can identify product trends, but no spatial or temporal data can be garnered about customers using RFID chips. 
+
+For the purposes of this project, the major concerns regarding RFID tags are numbers 2 and 5 above. It is important to realise that while the above may appear to be beating a dead horse in terms of RFID applications, the selling point of our project is twofold: to determine the status of shelf facing, and providing analytics in the form of customer interest and time spent within each aisle (i.e. to determine the number of customers in a given aisle and how long they stay there). 
+
+## Functional Specifications
+
+The following funcitonal specifications need to be met in order to deliver a product that allows non-professionals to interact with our proposed system:
+
+The ability to view shelf facings in real time, and determine where products in the store need to be restocked. 
+The ability to track customers entering and exiting each respective aisle, and determine how long each customer stayed in that section of the store.
+The ability to generate some basic analytics based on data from the sensors. This can include items such as determining hotspots or busy times around the store, analyzing which parts of the store are more popular (most shelves empty), and other organizational information, such as busy times within the store, or average time left unfaced. 
+
+These specifications, if achieved, will result in a product that produces value for non-professionals in a managerial or aisle-management  context within a retail organization.
+
+## Non-functional Specifications 
+
+Although there are many things to consider when discussing the overall functionality of our end software, it is important to also note some of the non-functional requirements, as follows: 
+
+1. The system should be painless and simple to introduce. Specifically, it should not require the user to do anything beyond setting up the hardware. For this reason, a central website that distributes management of multiple entities is preferred to a more decentralized system, where entities would set up their own specialized hardware for their application. 
+2. The system should be secure and prevent unauthorized entry.
+3. The system should be robust enough that events such as power loss or switching products between shelves should not produce any significant over head to the system. 
+4. The system should be easy to manage and should provide managers with the ability to readily pull up any information from a given store or branch that they might choose. 
+
+These specifications are particularly necessary in that it will be important to establish ease-of-use in order to market the final product. If the system is painless and simple to introduce, there is a more likely chance that such a system will establish itself in the market. This is often referred to as the technological acceptance model [3], and makes a strong argument for ease-of-use over initial functionality. This also factors in to our 3rd and 4th non-functional specifications, because we find that they represent a measure of *ease-of-use* in slightly different ways. 
+
+With regards to information security, the website will enforce a strict client-server authentication model, where specific shelves will be attached to different accounts based on universally unique identifiers (UUIDs). The specific research for this is not fleshed out here, as many common development frameworks are bundled with a sufficient client-authentication system, and will be largely implementation dependent. However, it should be noted that for the majority of the website development proposed by this project, it is likely that client-side computations will be necessary, as the group has not been able to secure any hardware with the capability of performing server-side computations and storage. Therefore, modern technologies such as HTML5, CSS, and Javascript will be necessary in order to allow us to perform computation of database results and analytics, as well as allow us to use some form of local storage for result caching. 
+
+# References
+[1] C. Ko (2013, June), "3D-Web-GIS RFID Location Sensing System for Construction Objects," Scientific World Journal. [Online]. Available: http://www-ncbi-nlm-nih-gov.ezproxy.lib.ucalgary.ca/pmc/articles/PMC3705755/pdf/TSWJ2013-217972.pdf, Vol 2013, pp. 1-8, [Accessed 2013-11-12]
+[2] C. Medeiros, J. Costa, C. Fernandes, "RFID Smart Shelf With Confined Detection Volume at UHF," IEEE Antennas and Propagation Letters. Vol 7, pp. 773-776, 2008
+[3] A. Lederer, D. Maupin, M. Sena, Y. Zhuang, "Technological Acceptance Model and the World Wide Web," Decision Support Systems. Vol 29, pp. 269-281, 2000
