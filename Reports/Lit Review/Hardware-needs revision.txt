@@ -1,0 +1,66 @@
+HARDWARE
+
+Functional
+ 
+The purpose of this project is to have a “smart shelf” where multiple sensors are connected to determine whether the shelf is faced or not, and to detect the behavior of a customer in the store. The sensors are connected to a microcontroller (Netduino, Arduino, or an RPi). This would make it easier to replenish the product in order to maintain a full display. This section consists of the current models that are being created which address’s a similar problem and brief descriptions of the sensors that we are considering. 
+One of the options that we are considering for our “Smart shelf” is spring load racks. Spring loads (also known as product pusher racks or shelf facing racks) are shelving racks that are spring loaded and they automatically “push” the product towards the front of the display, guaranteeing a full, well organized shelving system. [1] 
+Advantages for using spring loads (product pusher racks) are: [1]
+•	Maintains consistent facing and organization of products
+•	Guarantees optimal use of shelf space and inventory
+•	Increases sales potential at the point of merchandise
+For this project, we want to use different sensors, for example, infrared sensors, light sensors, weight sensors etc. Previous iterations of the smart shelf idea used Radio-Frequency Identification (RFID) tags. RFID is an automatic way for data transactions in object identification without human intervention (Qing and Chen).  
+A study has been done previously which talks about how a metal-backed loop antenna (MBLA) at high-frequency (HF) is applied to a RFID smart-shelf system. This study shows that the magnetic-field distribution of the metal-backed loop antenna can be effectively controlled by changing the size as well as the separation of the backing metal plate. Therefore, the antenna can be controlled by using the detection range of an RFID system. This is a huge advantage for the metal-backed loop antenna in applications for RFID smart-shelf systems. To achieve high system-detection accuracy, it is vital to control the coupling zone of the antennas for constraining the interference between the antenna in the adjacent tiers of the shelves. A metal-backed loop antenna provides more flexibility for RFID smart-shelf systems design and implementation, in order to make the system more cost effective. [3]
+There was another study which was done on RFID smart shelf but with confined detection volume at UHF (Ultra High Frequency). This study was specifically done for book identification at UHF with proper confinement of the electromagnetic fields to avoid detection of books located outside the interrogated shelf, without the need of EM isolation barriers. This approach has an embedded leaking microstrip transmission lines to enable proximity tags detection. Even though their work mainly focused on shelves and books, the concept was successfully tested for other applications where tight detection at UHF is required. It can also be used at isolated RFID reader points in the store. [4]
+There was another study which was done on the design of the near-field reader and tag antennas in UHF that can be used for various smart shelves, specifically the wine shelf. The tag antenna is designed by introducing an “S”-shaped or “+”-shaped slot to the circular patch and the radar one is a rectangular slot array fed by a microstrip line. The reader antenna, which is embedded in the shelf, offers uniform near-field distribution over a specified range, 41cmx32cm, without dead zones and it has a design flexibility to easily change the size and shape of the antenna depending on the shelf configuration. The antennas that are operated in UHF near-field are more reliable in many RFID applications where the reading distance is not that important.  [5]
+ NeWave Sensor solutions made major technology advancement with the use of their unique WAVE antenna, which provide retailers the ability to continuously monitor for merchandise availability at the shelf level, and the called it “NeWave Smart Shelf”. NeWave Sensor Solutions is a leading provider of optimized solutions for today’s most challenging item-level RFID problems. This company develops an open RFID technology platform based on the patented Wave antenna that sets a new standard for versatility, efficiency, and accuracy. This system can see both the front and the back of the shelf. The following things are needed for a four foot wide shelf system: [2]
+•	4 NeWave antennas
+•	1 RFID reader
+•	RF cables
+•	Smart Shelf controller
+•	Shelf dispensers and spacers
+•	RFID labels
+•	Mounting hardware and network cables
+The studies mentioned above are similar to what we are planning on doing for this project but all of them use RFID tags. We want to use sensors, such as, infrared, light, weight sensors. Then we want to connect the sensors to a microcontroller to store all data collected. 
+
+Non-Functional 
+
+Specifications for a raspberry pi [3]
+
+The raspberry pi can be used in the conventional computer configuration, with a keyboard, mouse and display, or in a “headless” configuration where it is available on a network and is controlled from another computer on the network. If you want to use a raspberry pi, the typical hardware that you will need are, Raspberry Pi Board, Power Supply, SD Card + OS, USB keyboard, USB mouse, Display, Display cable, Network cable, WiFi, USB adapter, Powered USB hub, Real-time clock module.
+Some of the specifications for the raspberry pi are:
+•	Memory (SDRAM)iB = 256 MiB
+•	USB 2.0 Ports = 1(provided by the BCM2835)
+•	Onboard storage = Secure Digital|SD/MMC/SDIO card slot
+•	Power ratings = 500mA (2.5 W)
+•	Power source = 5V (DC) via Micro USB type B or GPIO header
+•	Size = 85.0x56.0x15 (mm)
+•	Weight = 31g
+
+Specifications for a Netduino[7]
+
+Netduino is an open source electronics platform using the .NET Micro Framework. The following are the system requirements for this microcontroller:
+•	Windows 7 or 8
+•	1.6 GHz or faster processor
+•	1 GB RAM
+•	Up to 3 GB of available hard drive space for Visual Studio Express 2010
+For this microcontroller, the speed is 120 MHz, the code storage is 192 KB, the ram is 60KB, and the operating system (as mentioned earlier) is .NET Micro Framework 4.2.
+
+Specifications for an Arduino[8]
+
+Arduino is an open-source electronic prototyping platform that is based on flexible, easy-to-use hardware and software. Projects that are done using an arduino can be stand-alone or they can communicate with software running on a computer. To get started you would need an arduino board that is designed around an 8-bit Atmel AVR microcontroller and the arduino software, which consists of a standard programming language compiler. Most board include a 5 volt linear regulator and a 16 MHz crystal oscillator. The arduino board exposes most of the microcontroller’s I/O pins for use by other circuits. These pits are on top of the board, with 2.5mm headers. There are several plug-in application shields that are also commercially available. 
+
+References
+
+[1] 	F. S. M. &. Design, "Merchandising / Spring Loads," FullSteam, [Online]. Available: http://www.fullsteam.com/merchandising/spring_loads. [Accessed 11 November 2013].
+[2] 	NeWave, "NeWave Smart Shelf," NeWave Sensor Solutions, [Online]. Available: http://newavesensors.com/products/smartshelf. [Accessed 19 October 2013].
+[3] 	"RPi Hardware," elinux, [Online]. Available: http://elinux.org/RPi_Hardware. [Accessed 11 November 2013].
+[4] 	Q. Xianming and N. Z. Chen, "Characteristics of a Metal-Backed Loop Antenna and it application to a High-frequency RFID smart shelf," IEEE Antennas and Propagation Magazine, vol. 51, no. 2, 2009. 
+[5] 	R. C. Medeiros, R. J. Costa and A. Fernandes, "RFID Smart Shelf with Confined Detection Volume at UHF," IEEE Antennas and Wireless Propagation Letters, vol. 7, 2008. 
+[6] 	W. Choi, J. S. Kim, J. H. Bae, G. Choi and C. J. Suk, "Near-Field Antenna for RFID smart shelf in UHF," Electronics and Telecommunications Research Institute (ETRI), 2009. 
+[7] 	Netduino, "Netduino Hardware," [Online]. Available: http://netduino.com/hardware/. [Accessed 10 November 2013].
+[8] 	Arduino, "Arduino," [Online]. Available: http://arduino.cc/. [Accessed 10 November 2013].
+
+
+
+
+
