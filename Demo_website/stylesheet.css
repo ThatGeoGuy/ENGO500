@@ -1,0 +1,28 @@
+body{
+    font-family: arial, helvetica, sans-serif;
+}
+
+#thingElement{
+
+	color: white;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+	float: left;
+    background-color: #F38630;
+    border-radius: 5px;
+	padding: 5px;
+}
+
+#dataStreamElement{
+
+	color: white;
+    height: 100px;
+    width: 150px;
+    display: inline-block;
+	float: left;
+    background-color: #3366FF;
+    border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
