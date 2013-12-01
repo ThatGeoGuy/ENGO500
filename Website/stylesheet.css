@@ -1,13 +1,13 @@
-body{
+body {
     font-family: arial, helvetica, sans-serif;
 }
 
-#streamsLevel{
+#streamsLevel {
 	clear: both;
 	float:left;
 }
 
-.thingElement{
+div.thingElement {
 
 	color: white;
     height: 40px;
@@ -20,13 +20,9 @@ body{
 	margin: auto;
 }
 
-#streamElement{
-
+div.streamElement {
 	color: white;
-    height: 100px;
-    width: 150px;
     display: inline-block;
-	float: left;
     background-color: #3366FF;
     border-radius: 5px;
 	padding: 5px;
