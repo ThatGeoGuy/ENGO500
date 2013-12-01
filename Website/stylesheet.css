@@ -8,10 +8,7 @@ body {
 }
 
 div.thingElement {
-
 	color: white;
-    height: 40px;
-    width: 100px;
     display: inline-block;
 	float: left;
     background-color: #F38630;
