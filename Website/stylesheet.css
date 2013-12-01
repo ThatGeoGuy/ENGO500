@@ -22,6 +22,7 @@ div.thingElement {
 
 div.streamElement {
 	color: white;
+	width: 450px;
     display: inline-block;
     background-color: #3366FF;
     border-radius: 5px;
