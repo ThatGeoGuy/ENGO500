@@ -2,19 +2,25 @@ body{
     font-family: arial, helvetica, sans-serif;
 }
 
-#thingElement{
+#streamsLevel{
+	clear: both;
+	float:left;
+}
+
+.thingElement{
 
 	color: white;
-    height: 100px;
+    height: 40px;
     width: 100px;
     display: inline-block;
 	float: left;
     background-color: #F38630;
     border-radius: 5px;
 	padding: 5px;
+	margin: auto;
 }
 
-#dataStreamElement{
+#streamElement{
 
 	color: white;
     height: 100px;

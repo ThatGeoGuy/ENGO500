@@ -1,44 +1,37 @@
-// Definitions
-var rootURI = 'http://demo.student.geocens.ca:8080/SensorThings_V1.0/';
+var rootURI, root, things, stream; 
 
-// callback in a parameter that represents a function to be executed whenever the data is loaded successfully
-function getData(path, callback) {
-    $.getJSON(path, callback);
-}
+$(document).ready(function() {
+	// Definitions
+	rootURI = 'http://demo.student.geocens.ca:8080/SensorThings_V1.0/';
 
-// Get root directory information
-var root;
-var things;
-var dataStreams;
-
-root = getData(rootURI, function(jsonData) {
-    root = jsonData;
-	console.log(root);
-	
-	// Get things on database, display to screen
-	things = getData(root.Collections[0].Things.uri, function(jsonData) {
-		things = jsonData;
-		console.log(things);
-		$('#thingsLevel').append($('<div id=thingElement>' + things.Things[0].Description + '</div>').hide().fadeIn(500));
+	$.getJSON(rootURI, function(data) {
+		root = data; 
 		
-		// Get dataStreams for things
-		dataStreams = getData( rootURI + things.Things[0].Datastreams["Navigation-Link"], function(jsonData) {
-			dataStreams = jsonData;
-			console.log(dataStreams);
-			// If a thing is clicked, load it's datastreams
-			$('#thingElement').click(function() {
-					for(var i=0; i< dataStreams.Datastreams.length; i++){
-						$('#dataStreamsLevel').append($('<div id=dataStreamElement>' + i + ' ' + dataStreams.Datastreams[i].Description + '</div>').hide().fadeIn(500));
-						
-					}	
+		$.getJSON(root.Collections[0].Things.uri,function(data) {
+			things = data;
+			$('#thingsLevel').prepend($('<div class="thingElement">' + things.Things[0].Description + '</div>').fadeIn(500));
+
+			$.getJSON(rootURI + things.Things[0].Datastreams["Navigation-Link"],function(data) { 
+				stream = data; 
+				var loaded = false;
+
+				$('.thingElement').click(function() {
+					if(!loaded) { 
+						for(var i = 0; i < stream.Datastreams.length; ++i) {
+							$('#streamsLevel').append($(
+								'<li><div class="streamElement">' + 
+								stream.Datastreams[i].Description + 
+								'</div></li>').fadeIn(500));
+							loaded = true;
+						} 
+					} else { 
+						$('li').fadeOut(500,function() {
+							$(this).remove()
+						});
+						loaded = false;
+					}
+				});
 			});
-
-			return dataStreams
 		});
-		return things;
-	});
-	return root;
+	}); 
 });
-
-
-console.log("CHEESE");
