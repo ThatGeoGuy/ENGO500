@@ -19,7 +19,7 @@ root = getData(rootURI, function(jsonData) {
 	things = getData(root.Collections[0].Things.uri, function(jsonData) {
 		things = jsonData;
 		console.log(things);
-		$('#thingsLevel').append('<div id=thingElement>' + things.Things[0].Description + '</div>');
+		$('#thingsLevel').append($('<div id=thingElement>' + things.Things[0].Description + '</div>').hide().fadeIn(500));
 		
 		// Get dataStreams for things
 		dataStreams = getData( rootURI + things.Things[0].Datastreams["Navigation-Link"], function(jsonData) {
@@ -28,7 +28,7 @@ root = getData(rootURI, function(jsonData) {
 			// If a thing is clicked, load it's datastreams
 			$('#thingElement').click(function() {
 					for(var i=0; i< dataStreams.Datastreams.length; i++){
-						$('#dataStreamsLevel').append('<div id=dataStreamElement>' + i + ' ' + dataStreams.Datastreams[i].Description + '</div>');
+						$('#dataStreamsLevel').append($('<div id=dataStreamElement>' + i + ' ' + dataStreams.Datastreams[i].Description + '</div>').hide().fadeIn(500));
 						
 					}	
 			});
