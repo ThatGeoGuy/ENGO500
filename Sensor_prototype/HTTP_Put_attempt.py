@@ -3,6 +3,7 @@ request = open('D:\Temporary\DBtest01.json').read()
 
 import httplib
 # use httplib2...
+
 """
 webservice = httplib.HTTP('demo.student.geocens.ca:8080')
 webservice.putrequest("POST", "/SensorThings_V1.0/Things")
