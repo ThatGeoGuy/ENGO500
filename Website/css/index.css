@@ -1,0 +1,52 @@
+/* GLOBAL STYLES */ 
+body { 
+	padding-bottom: 40px;
+	background-color: #ececec;
+}
+
+/* NAVBAR SETTINGS */
+
+.navbar-wrapper { 
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+}
+
+.navbar-wrapper .container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.navbar-wrapper .navbar {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Redeclare since we override the float above */
+.navbar-right {
+	padding-right: 30px;
+}
+/* CAROUSEL SETTINGS */
+.carousel { 
+	height: 500px;
+	margin-bottom: 60px;
+}
+
+.carousel-caption {
+	z-index:10;
+}
+
+.carousel .item { 
+	height: 500px;
+	background-color: #151515;
+}
+
+.carousel-inner > .item > img { 
+	position: absolute; 
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
