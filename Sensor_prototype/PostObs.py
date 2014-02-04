@@ -51,7 +51,7 @@ class data:
         urlOBS = self.rootURI() + 'Observations'
         headers = {'content-type': 'application/json'}
         timestring = self.timeisoformat();
-        payloadOBS = {'Time':'2014-02-04T23:16:00-0700',
+        payloadOBS = {'Time':time.strftime('%FT%T%z'),
                       'ResultValue':str(obs),
                       'ResultType':'Measure',
                       'Datastream':{'ID':datastreamID}
