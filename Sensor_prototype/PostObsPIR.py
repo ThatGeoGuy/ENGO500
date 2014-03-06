@@ -13,7 +13,6 @@ class data:
     def __init__(self,ID):
         self.ID = ID
 
-
     def __str__(self):
         return '{' + str(self.ID) + ' , ' + str(self.v) + ' , ' + str(self.t) +'}'
 
