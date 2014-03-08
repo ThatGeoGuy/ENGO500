@@ -4,10 +4,11 @@
 # and cleaning them up while we're at it
 # march 5 2014 - KA
 
+text_file=open('/home/pi/ENGO500/Sensor_prototype/raspberrypi.txt')
 
 import time, datetime, requests, json, RPi.GPIO as GPIO
 ID = " RPi 1 "
-
+       
 class data:
 
     def __init__(self,ID):
