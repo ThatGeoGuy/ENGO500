@@ -27,9 +27,27 @@ class data:
         if (c == 'h'):
             print("Things exists")
             thing_location = ctl.readline()
-            self.thing_location = 'h' + thing_location 
+            self.thing_location = 'h' + thing_location
+            print(self.thing_location)
+            r2 = requests.get(self.thing_location)
+            sr2 = str(r2)
+            print(sr2)
+            print('check r2')
+            if (sr2 == '<Response [404]>'):
+                ctl.seek(0)
+                ctl.truncate()
+                csl.seek(0)
+                csl.truncate()
+                print(sr2)
+                print("Server has reset. Links have been changed, please restart.")
+                exit()
+            elif (sr2 == '<Response [200]>'):
+                print(sr2)
+                print('this is 200')
+            else:
+                print("rcode sting match failed")
             self.sensors_location = csl.readline()
-            print(self.sensors_location)
+            #print(self.sensors_location)
             rcode = requests.get(self.sensors_location)
             response = rcode.json()
             self.sensorID = response['ID']
@@ -50,9 +68,6 @@ class data:
             self.thing_location = thing_location
             ctl.write(thing_location)
 
-            print("Thing location :")
-            print(self.thing_location)
-
             url3 = self.rootURI() + 'Sensors'
             payload2 = {'Metadata': 'This is a PIR sensor'}
             rsensor = requests.post(url3, data=json.dumps(payload2), headers=headers)
@@ -68,8 +83,6 @@ class data:
     def sendObs(self, obs):
         url2 = self.thing_location + '/Datastreams'
         r2 = requests.get(url2)
-        print(r2)
-        ## ERROR CHECKING
         response2 = r2.json()
         datastreamID = response2['Datastreams'][0]['ID']
         urlOBS = self.rootURI() + 'Observations'
