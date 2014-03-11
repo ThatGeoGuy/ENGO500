@@ -1,8 +1,8 @@
 # Detect motion from PIR module and PhotoInterrupterSwitch
-# AC march 6 2014
+# AC march 10 2014
 
 # Import required Python libraries
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO, time
 
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
@@ -11,32 +11,36 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 Switch_State = 0
 
-if GPIO.input(25):
+if GPIO.input(17):
   print('Port 17 is 1/GPIO.HIGH/True')
+  print(GPIO.input(17))
 else:
   print('Port 17 is 0/GPIO.LOW/False')
+  print(GPIO.input(17))
 
 def PhotoIntSwitch(switch):
-  Switch_State = GPIO.input(17)
   while True:
+    Switch_State = GPIO.input(switch)
     if (Switch_State == 1):
-      print('SWITCH STATE')
+      print('HIGH')
       print(Switch_State)
     else:
       print('SWITCH STATE IS else')
       print(Switch_State)
+    time.sleep(2)
   return Switch_State
 
+    
+  #Main Program Loop
+try:
   
-#Main Program Loop
-while True:
-  try:
-    switch = 17
-    SwitchTest = PhotoIntSwitch(switch)
-    print("testing")
+  while True:
+      switch = 17
+      SwitchTest = PhotoIntSwitch(switch)
+      print("testing")
      
-  except KeyboardInterrupt:
-    print "  Quit"
-    # Reset GPIO settings
-    GPIO.cleanup()
+except KeyboardInterrupt:
+  print "  Quit"
+  # Reset GPIO settings
+  GPIO.cleanup()
 
