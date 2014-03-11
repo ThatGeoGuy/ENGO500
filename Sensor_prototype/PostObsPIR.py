@@ -1,4 +1,4 @@
-#! usr/bin/python
+#!/usr/bin/python
 # PostObsPIR.py
 # an attempt at mashing up existing scripts (oh boy!)
 # and cleaning them up while we're at it
@@ -6,6 +6,7 @@
 
 ctl=open('/home/pi/ENGO500/Sensor_prototype/checkthinglocation.txt','a+')
 csl=open('/home/pi/ENGO500/Sensor_prototype/checksensorlocation.txt','a+')
+
 
 import time, datetime, requests, json, RPi.GPIO as GPIO
 ID = " RPi 1 "
@@ -77,7 +78,8 @@ class data:
             rsensor = requests.get(self.sensors_location)
             response = rsensor.json()
             self.sensorID = response['ID']            
-            
+
+        #check txt files
         return thing_location
 
     def sendObs(self, obs):
