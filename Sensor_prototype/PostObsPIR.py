@@ -4,10 +4,6 @@
 # and cleaning them up while we're at it
 # Last Edited: march 12 2014 AC
 
-#ctl=open('/home/pi/ENGO500/Sensor_prototype/checkthinglocation.txt','a+')
-#csl=open('/home/pi/ENGO500/Sensor_prototype/checksensorlocation.txt','a+')
-
-
 import time, datetime, requests, json, RPi.GPIO as GPIO
 ID = " RPi 1 "
        
@@ -84,11 +80,12 @@ class data:
 
         return thing_location
 
-    def sendObs(self, obs):
+    def sendObs(self, obs, dsnum):
         url2 = self.thing_location + '/Datastreams'
         r2 = requests.get(url2)
         response2 = r2.json()
-        datastreamID = response2['Datastreams'][0]['ID']
+        datastreamID = response2['Datastreams'][dsnum]['ID']
+        print(datastreamID)
         urlOBS = self.rootURI() + 'Observations'
         headers = {'content-type': 'application/json'}
         payloadOBS = {'Time':time.strftime('%FT%T%z'),
@@ -115,15 +112,23 @@ GPIO.setmode(GPIO.BCM)
 # LED GPIO
 GPIO_LED = 4
 GPIO.setup(GPIO_LED,GPIO.OUT)
-
-# Define GPIO to use on Pi
+# For PhotoInt
+GPIO.setup(17,GPIO.IN)
+# For PIR
 GPIO_PIR = 18
-
-print "PIR Module Test (CTRL-C to exit)"
-
-# Set pin as input
 GPIO.setup(GPIO_PIR,GPIO.IN)      # Echo
 
+if GPIO.input(17):
+  print('Port 17 is 1/GPIO.HIGH/True')
+else:
+  print('Port 17 is 0/GPIO.LOW/False')
+if GPIO.input(18):
+  print('Port 18 is 1/GPIO.HIGH/True')
+else:
+  print('Port 18 is 0/GPIO.LOW/False')
+
+Switch_State = 1
+PSS = 1
 Current_State  = 0
 Previous_State = 0
 
@@ -135,7 +140,7 @@ try:
   while GPIO.input(GPIO_PIR)==1:
     Current_State  = 0    
 
-  print "  Ready"     
+  print "  Ready GO"     
     
   # Loop until users quits with CTRL-C
   while True :
@@ -146,18 +151,31 @@ try:
     if Current_State==1 and Previous_State==0:
       # PIR is triggered
       print "  Motion detected!"
-      thing1.sendObs(1)
+      thing1.sendObs(1,0)
       GPIO.output(GPIO_LED, True)
       # Record previous state
       Previous_State=1
     elif Current_State==0 and Previous_State==1:
       # PIR has returned to ready state
       print "  Ready"
-      thing1.sendObs(0)
+      thing1.sendObs(0,0)
       GPIO.output(GPIO_LED, False)
       Previous_State=0
-      
-    # Wait for 10 milliseconds
+    else:
+        continue
+
+
+    #------PhotoInt
+    Switch_State = GPIO.input(17)
+    if Switch_State == 0 and PSS == 1:
+        print("SWITCH STATE IS ZERO")
+        thing1.sendObs(1,1)
+        PSS = 0
+    elif Switch_State == 1 and PSS == 0:
+        print('Switch is reset')
+        thing1.sendObs(0,1)
+        PSS = 1
+
     time.sleep(0.01)      
       
 except KeyboardInterrupt:
