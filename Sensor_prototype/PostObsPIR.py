@@ -2,7 +2,7 @@
 # PostObsPIR.py
 # an attempt at mashing up existing scripts (oh boy!)
 # and cleaning them up while we're at it
-# Last Edited: march 18 2014 KA
+# Last Edited: march 19 2014 AC
 
 import time, datetime, requests, json, RPi.GPIO as GPIO
 ID = " RPi 1 "
@@ -16,7 +16,7 @@ class data:
         return '{' + str(self.ID) + ' , ' + str(self.v) + ' , ' + str(self.t) +'}'
 
     def rootURI(self):
-        return 'http://demo.student.geocens.ca:8080/SensorThings_V1.0_M/'
+        return 'http://demo.student.geocens.ca:8080/SensorThings_V1.0_students/'
 
     def initRequest(self):
         n=1
@@ -145,16 +145,16 @@ else:
 
 Switch_State = 1
 PSS = 1
-Current_State  = 0
-Previous_State = 0
+Current_State  = 1
+Previous_State = 1
 
 try:
 
   print "Waiting for PIR to settle ..."
 
   # Loop until PIR output is 0
-  while GPIO.input(GPIO_PIR)==1:
-    Current_State  = 0    
+  while GPIO.input(GPIO_PIR)==0:
+    Current_State  = 1    
 
   print "  Ready GO"     
     
@@ -164,22 +164,19 @@ try:
     # Read PIR state
     Current_State = GPIO.input(GPIO_PIR)
    
-    if Current_State==1 and Previous_State==0:
+    if Current_State==0 and Previous_State==1:
       # PIR is triggered
       print "  Motion detected!"
       thing1.sendObs(1,PIR_datastreamID)
       GPIO.output(GPIO_LED, True)
       # Record previous state
-      Previous_State=1
-    elif Current_State==0 and Previous_State==1:
+      Previous_State=0
+    elif Current_State==1 and Previous_State==0:
       # PIR has returned to ready state
       print "  Ready"
       thing1.sendObs(0,PIR_datastreamID)
       GPIO.output(GPIO_LED, False)
-      Previous_State=0
-    else:
-        continue
-
+      Previous_State=1
 
     #------PhotoInt
     Switch_State = GPIO.input(17)
