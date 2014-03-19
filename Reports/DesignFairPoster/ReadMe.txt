@@ -1,0 +1,1 @@
+Concerning the poster: if you have any awesome screen shots that can be used for visual aids, or anything else that you wanna add, commit it to this folder.

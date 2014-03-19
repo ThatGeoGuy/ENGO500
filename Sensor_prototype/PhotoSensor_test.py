@@ -27,7 +27,8 @@ def PhotoIntSwitch(switch):
     else:
       print('SWITCH STATE IS else')
       print(Switch_State)
-    time.sleep(0.1)
+
+    time.sleep(2)
   return Switch_State
 
     
