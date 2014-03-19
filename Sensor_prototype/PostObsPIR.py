@@ -2,7 +2,7 @@
 # PostObsPIR.py
 # an attempt at mashing up existing scripts (oh boy!)
 # and cleaning them up while we're at it
-# Last Edited: march 12 2014 AC
+# Last Edited: march 18 2014 KA
 
 import time, datetime, requests, json, RPi.GPIO as GPIO
 ID = " RPi 1 "
@@ -16,7 +16,7 @@ class data:
         return '{' + str(self.ID) + ' , ' + str(self.v) + ' , ' + str(self.t) +'}'
 
     def rootURI(self):
-        return 'http://demo.student.geocens.ca:8080/SensorThings_V1.0/'
+        return 'http://demo.student.geocens.ca:8080/SensorThings_V1.0_M/'
 
     def initRequest(self):
         n=1
@@ -59,7 +59,7 @@ class data:
                     payload = {'Description': 'This is the real TurboCat (Raspberry Pi)',
                         'Datastreams':
                             [{'Description': 'This is a datastream for measuring people traffic'},
-                                {'Description': 'This is a second datastream'}]}
+                                {'Description': 'This is for measuring shelf facing'}]}
                     headers = {'content-type': 'application/json'}
 
                     r = requests.post(url, data=json.dumps(payload), headers=headers)
@@ -80,12 +80,15 @@ class data:
 
         return thing_location
 
-    def sendObs(self, obs, dsnum):
-        url2 = self.thing_location + '/Datastreams'
-        r2 = requests.get(url2)
-        response2 = r2.json()
-        datastreamID = response2['Datastreams'][dsnum]['ID']
+    def getDatastreamID(self, dsIndex):
+        url= self.thing_location + '/Datastreams'
+        r = requests.get(url)
+        response = r.json()
+        datastreamID = response['Datastreams'][dsIndex]['ID']
         print(datastreamID)
+        return datastreamID
+
+    def sendObs(self, obs, datastreamID):
         urlOBS = self.rootURI() + 'Observations'
         headers = {'content-type': 'application/json'}
         payloadOBS = {'Time':time.strftime('%FT%T%z'),
@@ -94,9 +97,18 @@ class data:
                       'Datastream':{'ID':datastreamID},
                       'Sensor' : {'ID' : self.sensorID}
                       }
-        r3 = requests.post(urlOBS, data=json.dumps(payloadOBS), headers=headers)
-        return r3.headers
+        try:
+            r3 = requests.post(urlOBS, data=json.dumps(payloadOBS), headers=headers)
+        except requests.exceptions.Timeout as e:
+            print e
+        except requests.exceptions.HTTPError as e:
+            print e
+        except requests.exceptions.ConnectionError as e:
+            print e
+        except requests.exceptions.RequestException as e:
+            print e
 
+        return None
         
 
 ##### Main #####
@@ -104,6 +116,10 @@ class data:
 # Create instance of data class
 thing1 = data(ID)
 thing1.initRequest()
+
+# Get datastream ids
+PIR_datastreamID = thing1.getDatastreamID(0)
+PInt_datastreamID = thing1.getDatastreamID(1)
 
 # Use BCM GPIO references
 # instead of physical pin numbers
@@ -151,14 +167,14 @@ try:
     if Current_State==1 and Previous_State==0:
       # PIR is triggered
       print "  Motion detected!"
-      thing1.sendObs(1,0)
+      thing1.sendObs(1,PIR_datastreamID)
       GPIO.output(GPIO_LED, True)
       # Record previous state
       Previous_State=1
     elif Current_State==0 and Previous_State==1:
       # PIR has returned to ready state
       print "  Ready"
-      thing1.sendObs(0,0)
+      thing1.sendObs(0,PIR_datastreamID)
       GPIO.output(GPIO_LED, False)
       Previous_State=0
     else:
@@ -169,15 +185,15 @@ try:
     Switch_State = GPIO.input(17)
     if Switch_State == 0 and PSS == 1:
         print("SWITCH STATE IS ZERO")
-        thing1.sendObs(1,1)
+        thing1.sendObs(1,PInt_datastreamID)
         PSS = 0
     elif Switch_State == 1 and PSS == 0:
         print('Switch is reset')
-        thing1.sendObs(0,1)
+        thing1.sendObs(0,PInt_datastreamID)
         PSS = 1
 
     time.sleep(0.01)      
-      
+    #time.sleep(1)
 except KeyboardInterrupt:
   print "  Quit" 
   # Reset GPIO settings
