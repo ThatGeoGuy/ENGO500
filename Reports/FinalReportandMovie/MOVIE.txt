@@ -1,0 +1,21 @@
+Super lame movie outline!
+
+INTRO
+talk about project giudlines, IoT, OGC etc
+show school/schulich setting?
+
+PROBLEM
+talk about value that we wanted to create for store owners
+show store stuff
+
+PROTOTYPE
+talk about raspberry pi, PIR motion sensor to capture traffic movement, photoint for shelf facing
+show the equipment....
+
+VISUALISATION
+talk about and demonstrate usability of website
+demo, somehow record laptop screen, combine with store demo
+
+
+
+THE END
