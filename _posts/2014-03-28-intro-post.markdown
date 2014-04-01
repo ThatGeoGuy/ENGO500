@@ -3,7 +3,6 @@
 layout: post
 title: Intro Post
 author: Kathleen Ang
-stylesheets: ['/css/post.css','/css/test2.css']
 
 excerpt: Hi everyone! This first blog post is just a quick introduction to what this blog is about. For our final-year capstone design project, we were tasked to create an application of the Internet of Things (also known as the IoT). We decided to create a "smart shelf" -- except "smart" things are overdone nowadays, so we decided to call it LASS - a Location Aware Shelf System.
  
