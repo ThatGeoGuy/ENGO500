@@ -23,9 +23,9 @@ Finally, we can add the content we would like to post. We will keep it simple fo
     {"Description":"This is a chair"}
 
 Your final screen will look something like this:
-![](images/hurl_screenshot.png)
+![](http://thatgeoguy.github.io/ENGO500/images/hurl_screenshot.png)
 
 Once you send it (just click Launch Request), the response you will get is 201 Created:
-![](images/hurl_result.png)
+![](http://thatgeoguy.github.io/ENGO500/images/hurl_result.png)
 
 And there you have it! Happy POST-ing :)
