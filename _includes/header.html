@@ -2,11 +2,11 @@
 	<div class='container'>
 		<nav class='blog-nav'>
 			{% if page.title == "Home Page"  %}
-			<a class='blog-nav-item active' href='/'>Home</a>
-			<a class='blog-nav-item' href='/archives'>Archives</a>
+			<a class='blog-nav-item active' href='{{ site.baseurl }}/'>Home</a>
+			<a class='blog-nav-item' href='{{ site.baseurl }}/archives'>Archives</a>
 			{% else %}
-			<a class='blog-nav-item' href='/'>Home</a>
-			<a class='blog-nav-item active' href='/archives'>Archives</a>
+			<a class='blog-nav-item' href='{{ site.baseurl }}/'>Home</a>
+			<a class='blog-nav-item active' href='{{ site.baseurl }}/archives'>Archives</a>
 			{% endif %}
 		</nav>
 	</div>
