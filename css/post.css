@@ -2,6 +2,9 @@
 .post-content > p { 
 	font-size: 16px;
 }
+.post-content > p.blog-post-meta { 
+	text-align: center; 
+}
 .post-content > blockquote, li { 
 	font-size: 14px;
 }
