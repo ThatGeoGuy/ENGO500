@@ -15,17 +15,19 @@ Today I'll briefly explain how to HTTP POST (corresponding to the "CREATE" in Cr
 Let's try making a simple POST request and create a new [Thing](http://ogc-iot.github.io/ogc-iot-api/datamodel.html). For the purposes of experimenting and debugging, I would recommend using [Hurl](http://www.hurl.it/). 
 
 We'll start by changing GET in the dropdown menu to POST. Following that, we can put the following URL in the textbox:
+
     http://demo.student.geocens.ca/SensorThings_V1.0/Things
 
 Next, we need to add a new header (by clicking on the +Add Header(s) button). The "name" field should be Content-Type and the "value" field should be application/json.
 
 Finally, we can add the content we would like to post. We will keep it simple for now, and make our Thing with just a description. Something like this will do:
+
     {"Description":"This is a chair"}
 
 Your final screen will look something like this:
-![](http://thatgeoguy.github.io/ENGO500/images/hurl_screenshot.png)
+![Screen set-up]({{ site.url }}/images/hurl_screenshot.png)
 
 Once you send it (just click Launch Request), the response you will get is 201 Created:
-![](http://thatgeoguy.github.io/ENGO500/images/hurl_result.png)
+![Success]({{ site.url }}/images/hurl_result.png)
 
 And there you have it! Happy POST-ing :)
