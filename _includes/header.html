@@ -1,0 +1,13 @@
+<div class='blog-masthead'>
+	<div class='container'>
+		<nav class='blog-nav'>
+			{% if page.title == "Home Page"  %}
+			<a class='blog-nav-item active' href='/'>Home</a>
+			<a class='blog-nav-item' href='/archives'>Archives</a>
+			{% else %}
+			<a class='blog-nav-item' href='/'>Home</a>
+			<a class='blog-nav-item active' href='/archives'>Archives</a>
+			{% endif %}
+		</nav>
+	</div>
+</div>

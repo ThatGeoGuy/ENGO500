@@ -1,5 +1,3 @@
 *.~lock.*
 *.swp
-Reports/Proposal/GanttChart.ods
-Meeting_Notes/*
-Papers/*
+_site/

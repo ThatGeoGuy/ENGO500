@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<title>LASS Blog by Turbocats - {{ page.title }}</title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<meta name='description' content=''>
+		<meta name='author' content='Jeremy Steward'>
+		<meta name='author' content='Kathleen Ang'>
+		<meta name='author' content='Ben Trodd'>
+		<meta name='author' content='Alex Cummins'>
+		<meta name='author' content='Harshini Nanduri'>
+		<link rel='shortcut icon' href='/favicon.ico'>
+		<link rel='stylesheet' type='text/css' href='https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css' />
+		<link rel='stylesheet' type='text/css' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'>
+		<link rel='stylesheet' href='{{ site.baseurl }}/css/base.css'>
+		{% for stylesheet in page.stylesheets %} 
+		<link rel='stylesheet' href='{{ site.baseurl}}{{ stylesheet }}'>
+		{% endfor %}
+	</head>
+	<body>
+		{{ content }}
+		{% include footer.html %}
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+	</body>
+</html>

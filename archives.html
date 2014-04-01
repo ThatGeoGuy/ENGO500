@@ -1,0 +1,33 @@
+---
+
+layout: base
+title: Archives
+
+---
+{% include header.html %} 
+
+<div class='container'>
+	<div class='blog-header'>
+		<h1 class='blog-title'>Archives</h1>
+	</div>
+	<div class='row'>
+		<div class='col-sm-8 blog-main'>
+			<ul class='list-unstyled'>
+			{% for post in site.posts %} 
+			<li>{{ post.date | date: "%Y-%m-%d" }} - <a href='{{ site.baseurl}}{{ post.url }}'>{{ post.title }}</a></li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class='col-sm-3 col-sm-offset-1 blog-sidebar'>
+			<div class='sidebar-module sidebar-module-inset'>
+				<p>We are a group of students (affectionately referred to as the TurboCats) in our final year of Geomatics Engineering at the Schulich School of Engineering at the University of Calgary.</p> 
+			</div>
+			<div class='sidebar-module'>
+				<h4>Elsewhere</h4>
+				<ol class='list-unstyled'>
+					<li><a href='https://github.com/ThatGeoGuy/ENGO500'>GitHub: Main Project Page</a></li>
+					<li><a href='https://github.com/ThatGeoGuy/ENGO500-Webserver'>GitHub: Website Development</a></li>
+			</div>
+		</div>
+	</div>
+</div>
