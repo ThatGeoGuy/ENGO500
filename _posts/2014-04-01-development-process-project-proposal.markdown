@@ -41,3 +41,8 @@ For this reason, we were tasked with developing an application that used the OGC
 
 That about sums up the information we had regarding the overall project scope, as well as the rationale behind why we eventually developed our LASS. While some other minor considerations had taken place as well, I won't go into details here as they will be touched on in more depth in subsequent articles. If you want to read the original project proposal, see it listed [here](https://github.com/ThatGeoGuy/ENGO500/raw/master/Reports/Proposal/GIS%26LT2_ProjectProposal_2013-09-27.pdf) on Github. 
 
+* * *
+
+**Next Post:** [Development Process: Literature Review]({{ site.url }}/2014/04/01/development-process-project-proposal/)
+
+* * *
