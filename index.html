@@ -20,6 +20,7 @@ index: true
 					{{ post.date | date: "%Y-%m-%d" }} by {{ post.author }}
 				</p>
 				<span>{{ post.excerpt | strip_html }}</span>
+				<hr>
 			</div>
 		{% endfor %}
 		<div class='pager'><a href='{{ site.baseurl }}/archives'>More...</a></div>
