@@ -3,3 +3,4 @@ pygments: false
 safe: false
 baseurl: /ENGO500
 permalink: pretty
+markdown: kramdown
