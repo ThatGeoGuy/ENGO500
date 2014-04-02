@@ -43,6 +43,6 @@ That about sums up the information we had regarding the overall project scope, a
 
 * * *
 
-**Next Post:** [Development Process: Literature Review]({{ site.baseurl }}/2014/04/01/development-process-project-proposal/)
+**Next Post:** [Development Process: Literature Review]({{ site.baseurl }}/2014/04/01/development-process-literature-review/)
 
 * * *
