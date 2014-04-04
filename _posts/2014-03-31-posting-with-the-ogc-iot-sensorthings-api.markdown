@@ -16,7 +16,7 @@ Let's try making a simple POST request and create a new [Thing](http://ogc-iot.g
 
 We'll start by changing GET in the dropdown menu to POST. Following that, we can put the following URL in the textbox:
 
-    http://demo.student.geocens.ca/SensorThings_V1.0/Things
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things
 
 Next, we need to add a new header (by clicking on the +Add Header(s) button). The "name" field should be Content-Type and the "value" field should be application/json.
 
