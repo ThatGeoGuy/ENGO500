@@ -12,6 +12,18 @@ excerpt: The Store Layout Creator page made up a significant portion of the fron
 
 The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we talk about the development details of the Store Layout Creator.
 
+## Use Cases Fulfilled
+
+2.1 - Assign location to a microcontroller
+: This use case was defined as the need to assign a location to a microcontroller, but ended up evolving to the ability to assign a location to a sensor.
+: Assigning a location to a sensor is done by adding the url of a sensor's datastream to the editable text feilds located within a sections attributes. Too see how to do this, follow the instructions for [Using LASS: Store Layout Creator]({{ site.url }}/ENGO500/2014/04/02/using-lass-store-layout-creator/).
+
+2.2 - Configure a store layout
+: This is the main use case that is accomplished by the Store Layout Creator. Details of its workings are explained in the sections that follow.
+
+2.3 - Show map UI
+: The map UI that is used for both the Store Layout Creator and the Store Viewer is created in real time while editing the store layout.
+
 ## Enabling Technologies
 
 To enable the user to build a model dynamically, it was decided that both a visual representation and easy to modify controls were needed. The user interface that was eventually decided upon was uses the [bootstrap](http://getbootstrap.com) front end framework for positioning and styling, [jQueryUI accordion](http://jqueryui.com/accordion/) elements to organize the user's information, [X-editable](http://vitalets.github.io/x-editable/) to allow real-time editing of attributes, and [D3.js](http://d3js.org/) to visualize the store floorplan. To simplify the JavaScript necessary to merge all of these technologies together, [jQuery](http://jquery.com/) was utilized.
