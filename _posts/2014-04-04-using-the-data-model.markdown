@@ -25,9 +25,3 @@ Finally, each of these associated Datastreams have 0 to many Observations, which
 All this information is set up and sent from the Raspberry Pi to the OGC IoT data service, which in turn was read from our website. The diagram below shows a high-level overview of our project, with the appropriate entities from the SensorThings API Data Model applied.
 
 ![Our data model]({{ site.baseurl }}/images/dataModel/AdoptedDataModel.png)
-
-* * *
-
-**Related posts:** POST-ing from the RPi (not yet completed), GET-ting observations (not yet completed)
-
-* * *
