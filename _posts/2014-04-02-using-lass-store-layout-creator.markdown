@@ -18,7 +18,7 @@ The first step on the web-side of the LASS system that any user would take would
 
 ![Navigation Bar]({{ site.url }}/ENGO500/images/storeLayoutCreator/Nav.png)
 
-This brings up the Store Layout Creater, which is shown below:
+This brings up the Store Layout Creator, which is shown below:
 
 ![An empty Store Layout screen]({{ site.url }}/ENGO500/images/storeLayoutCreator/Empty.png)
 
@@ -30,7 +30,7 @@ To get started, click the '+ Shelf', which will add a shelf to your store.
 
 ![Added a shelf!]({{ site.url }}/ENGO500/images/storeLayoutCreator/AddShelf.png)
 
-You will notice that a new panel, called an accordion, is added to the left section of the screen. This accordion can be opened and closed by a simple mouse-click. Accordions are used to keep the interface organized and accesible without the need for excessive scrolling. You will notice that the accordion contains a smaller accordion within it, called 'Shelf Attributes'. This is automatically generated with each shelf, so that you can give some characteristics to the shelf as a whole.
+You will notice that a new panel, called an accordion, is added to the left section of the screen. This accordion can be opened and closed by a simple mouse-click. Accordions are used to keep the interface organized and accessible without the need for excessive scrolling. You will notice that the accordion contains a smaller accordion within it, called 'Shelf Attributes'. This is automatically generated with each shelf, so that you can give some characteristics to the shelf as a whole.
 
 Also within the left section, you will see that two new options have become available. The first, labelled 1, is the remove button. This allows you to remove whatever is currently selected from your store layout. In the screenshot above, clicking the remove button would remove 'Shelf 1' from your layout.
 
@@ -38,11 +38,11 @@ The second new option, labelled 2, is the '+ Section' button. This is used to or
 
 In addition to changes in the left panel, you will notice that a new shelf has appeared in the right section. It looks pretty bare-bones right now, but don't worry, we are about to make things more interesting!
 
-Lets go ahead and create some section for our petfood aisle by clicking the '+ Section' button four times.
+Lets go ahead and create some section for our pet food aisle by clicking the '+ Section' button four times.
 
 ![Added a section!]({{ site.url }}/ENGO500/images/storeLayoutCreator/AddSection.png)
 
-As you have probably come to expect, section elements are added to the left section of the screen, and vizualized on the right. From this point we can open on of the sections and add some details about it.
+As you have probably come to expect, section elements are added to the left section of the screen, and visualized on the right. From this point we can open on of the sections and add some details about it.
 
 Although the right section is mostly for visualization, it also allows you to easily select jump to the details of a specific section of a shelf. If you click the element shown in the screenshot above, Section 1 of Shelf 1 will open. Let's try that now.
 
