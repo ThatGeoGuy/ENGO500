@@ -54,7 +54,7 @@ With our Dog Food, Cat Food, Toys, and Bird Seed sections created, we have a goo
 
 ![A nice start to a store model]({{ site.url }}/ENGO500/images/storeLayoutCreator/Full.png)
 
-Alright! We have a pretty nice looking store. When you are working in the Store Layout Creator, any changes you make are temporary until you choose to save them to the database. If you take a look at the bottom right hand side of the Store Layout, we can see buttons for 'Save' and 'Delete All'. Simply click the 'Save' button and your layout will now be available to use and update as you see fit. If you want to scrap the whole thing, press the 'Delete All' button and start again!
+Alright! We have a pretty nice looking store. When you are working in the Store Layout Creator, any changes you make are temporary until you choose to save them to the database. If you take a look at the bottom right hand side of the Store Layout, we can see buttons for 'Save' and 'Delete All'. Simply click the 'Save' button and your layout will now be available to use and update as you see fit. If you make changes that you are not happy with, you can reload the page and you will be brought back to your last save state. If you want to scrap the whole thing, press the 'Delete All' button and start again!
 
 The next step of using the system is to link the store sections to the sensors you have set up in your store. If you would like an explanation of how these systems work together, check out [Using the Data Model]({{ site.url }}/ENGO500/2014/04/04/using-the-data-model/).
 
@@ -62,4 +62,4 @@ Linking a sensor to a section is as easy as adding the URL of the datastream int
 
 ![Adding a motion sensor to the dog food section]({{ site.url }}/ENGO500/images/storeLayoutCreator/addingSensor.png)
 
-Linking a stock sensor is done in the same way, just use stock sensor text field instead. After you add all of your sensors, your store model will be ready to use. Don't forget to save your changes before exiting!
+Linking a stock sensor is done in the same way, just use the stock sensor text field instead. After adding all of your sensors, your store model will be ready to use. Don't forget to save your changes before exiting!
