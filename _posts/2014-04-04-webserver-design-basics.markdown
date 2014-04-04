@@ -4,7 +4,7 @@ layout: post
 title: Webserver Design - Basics
 author: Jeremy Steward
 
-excerpt:
+excerpt: A critical component of our website development revolved around building a webserver that could render pages and serve content dynamically. What's more, we wanted to develop our server such that everybody involved in the project could set it up easily with minimal barriers for development. Currently, the code for the webserver has been split off from the main repository and is now hosted in the ENGO500-Webserver repostitory. This post will take you through how to install the pre-requisites and get the server up and running on your local machine. 
 
 ---
 # Webserver Design: Basics
