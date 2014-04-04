@@ -20,7 +20,7 @@ To enable the user to build a model dynamically, it was decided that both a visu
 
 Shown below is a screenshot of the system with some shelves and sections added:
 
-![Store Layout Creator]({{ site.url }}/ENGO500/images/storeLayoutCreator/FullLabeled.png)
+![Store Layout Creator]({{ site.url }}/ENGO500/images/storeLayoutCreator/FullLabelled.png)
 
 ### System Overview
 
@@ -69,7 +69,7 @@ shelves = [
 ]
 ~~~
 
-The `shelves` array holds the `shelf` objects which, in this example, are comprised of `notes` which is assigned in the 'Shelf Attributes' accoridon, and an internal array for `sections' which holds the `section` objects. There are three sections in the first shelf, for 'Dog Food', 'Cat Food' and 'Bird Seed'. Alongside these attributes is the `pirURL` and the `pintURL`. These are the addresses of the observations of the sensors that are contained within those sections. A second shelf exists, with some filler text for its attributes.
+The `shelves` array holds the `shelf` objects which, in this example, are comprised of `notes` which is assigned in the 'Shelf Attributes' accoridon, and an internal array for `sections` which holds the `section` objects. There are three sections in the first shelf, for 'Dog Food', 'Cat Food' and 'Bird Seed'. Alongside these attributes is the `pirURL` and the `pintURL`. These are the addresses of the observations of the sensors that are contained within those sections. A second shelf exists, with some filler text for its attributes.
 
 ### Technical Challenges
 
@@ -118,8 +118,8 @@ $parentAccordion.accordion("refresh");
 ~~~
 
 The accordion elements are created with the following:
-- The header (title bar) with `id="#ui-accordion-parentAccordion-header-" + n`
-- The panel (body) with `id="#ui-accordion-parentAccordion-panel-" + n`
+* The header (title bar) with `id="#ui-accordion-parentAccordion-header-" + n`
+* The panel (body) with `id="#ui-accordion-parentAccordion-panel-" + n`
 Where `n` is the nth element in the accordion.
 
 Utilizing these selectors, you can change the title and body contents. Additionally, by selecting the body of an accordion, you can attach a nested accordion by following the steps described above.
@@ -129,7 +129,3 @@ Utilizing these selectors, you can change the title and body contents. Additiona
 #### Saving and loading editable attributes
 
 #### D3.js
-
-##### Basics
-
-##### Scales
