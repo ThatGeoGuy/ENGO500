@@ -3,7 +3,6 @@
 layout: post
 title: Development Details - Store Layout Creator
 author: Ben Trodd
-published: false
 
 excerpt: The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we talk about the development details of the Store Layout Creator.
 
@@ -15,7 +14,7 @@ The Store Layout Creator page made up a significant portion of the front-end sof
 
 ## Enabling Technologies
 
-To enable the user to build a model dynamically, it was decided that both a visual representation and easy to modify controls were needed. The user interface that was eventually decided upon was uses the [bootstrap](http://getbootstrap.com) front end framework for positioning and styling, [jQueryUI accordion](http://jqueryui.com/accordion/) elements to organize the user's information, [X-editable](http://vitalets.github.io/x-editable/) to allow real-time editing of attributes, and [D3.js](http://d3js.org/) to vizualise the store floorplan. To simplyfy the javascript necessary to merge all of these technologies together, [jQuery](http://jquery.com/) was utilzied.
+To enable the user to build a model dynamically, it was decided that both a visual representation and easy to modify controls were needed. The user interface that was eventually decided upon was uses the [bootstrap](http://getbootstrap.com) front end framework for positioning and styling, [jQueryUI accordion](http://jqueryui.com/accordion/) elements to organize the user's information, [X-editable](http://vitalets.github.io/x-editable/) to allow real-time editing of attributes, and [D3.js](http://d3js.org/) to visualize the store floorplan. To simplify the JavaScript necessary to merge all of these technologies together, [jQuery](http://jquery.com/) was utilized.
 
 ## Store Layout Creator Architecture
 
@@ -25,13 +24,13 @@ Shown below is a screenshot of the system with some shelves and sections added:
 
 ### System Overview
 
-As you can see in the screenshot above, the system is split into two distinct panels. When a user wants to create a model of their store, what they are really doing is manipulating a javascript object with the controls that have been provided to them. While both the left and right panels are representations of the same object, they present this data in a different way. 
+As you can see in the screenshot above, the system is split into two distinct panels. When a user wants to create a model of their store, what they are really doing is manipulating a JavaScript object with the controls that have been provided to them. While both the left and right panels are representations of the same object, they present this data in a different way. 
 
-The user is given control over the javascript object via the controls of the left panel, labelled 1. The elements labelled 'Shelf 1', 'Shelf 2', etc, are jQueryUI accordion elements. Note that inside of the open element, 'Shelf 2', there are a set of nested accordions. These contain the attributes and sections of 'Shelf 2'. By utlizing the '+ Section', '+ Shelf' and '(x)' (remove) buttons, users can add to the object or remove the selected accordion element. Within each of the nested accordions, editable text fields exist. These allow users to configure the attributes of each part of their model.
+The user is given control over the JavaScript object via the controls of the left panel, labelled 1. The elements labelled 'Shelf 1', 'Shelf 2', etc., are jQueryUI accordion elements. Note that inside of the open element, 'Shelf 2', there are a set of nested accordions. These contain the attributes and sections of 'Shelf 2'. By utilizing the '+ Section', '+ Shelf' and '(x)' (remove) buttons, users can add to the object or remove the selected accordion element. Within each of the nested accordions, editable text fields exist. These allow users to configure the attributes of each part of their model.
 
-The visual representation of this model is shown in the right panel, labelled 2. This is displayed to guide the user's creation by allowing them to relate what they are building to physical space. The visualization is updated in real time as elements are added and removed. In the screenshot provided, the shelves are represented by the 6 light blue rectangles that contain an assortment of smaller blue rectangles. They are created as from left to right, and are in groups of two to represent two opposing sides of a shelf. Thus, the white space between the shelves represents the concept of an 'aisle'. The smaller blue rectangles contained within them represent Sections, which can be used to set up logical divisions to differeniate products on a shelf. They are created from top to bottom.
+The visual representation of this model is shown in the right panel, labelled 2. This is displayed to guide the user's creation by allowing them to relate what they are building to physical space. The visualization is updated in real time as elements are added and removed. In the screenshot provided, the shelves are represented by the 6 light blue rectangles that contain an assortment of smaller blue rectangles. They are created as from left to right, and are in groups of two to represent two opposing sides of a shelf. Thus, the white space between the shelves represents the concept of an 'aisle'. The smaller blue rectangles contained within them represent Sections, which can be used to set up logical divisions to differentiate products on a shelf. They are created from top to bottom.
 
-Once the user is happy with the layout of their store, the javascript object is converted to JSON and saved to database. Anytime the Store Layout Creator is opened thereafter, the object is loaded and the accordion elements, attributes, and visualization are rendered exactly as they were configured when the user saved. This allows the user to edit their store layout at any time without needing to build a new one from scratch.
+Once the user is happy with the layout of their store, the JavaScript object is converted to JSON and saved to database. Anytime the Store Layout Creator is opened thereafter, the object is loaded and the accordion elements, attributes, and visualization are rendered exactly as they were configured when the user saved. This allows the user to edit their store layout at any time without needing to build a new one from scratch.
 
 ### Data Structure
 
@@ -68,7 +67,7 @@ An example of the object that is being manipulated and displayed by the user int
 		}
 	]
 
-The `shelves` array holds the `shelf` objects which, in this example, are comprised of `notes` which is assigned in the 'Shelf Attributes' accoridon, and an internal array for `sections` which holds the `section` objects. There are three sections in the first shelf, for 'Dog Food', 'Cat Food' and 'Bird Seed'. Alongside these attributes is the `pirURL` and the `pintURL`. These are the addresses of the observations of the sensors that are contained within those sections. A second shelf exists, with some filler text for its attributes.
+The `shelves` array holds the `shelf` objects which, in this example, are comprised of `notes` which is assigned in the 'Shelf Attributes' accordion, and an internal array for `sections` which holds the `section` objects. There are three sections in the first shelf, for 'Dog Food', 'Cat Food' and 'Bird Seed'. Alongside these attributes is the `pirURL` and the `pintURL`. These are the addresses of the observations of the sensors that are contained within those sections. A second shelf exists, with some filler text for its attributes.
 
 ### Technical Challenges
 
@@ -160,11 +159,11 @@ Then we must also dive one level deeper and rename the `ids` of any child accord
 
 ##### Removing SVG elements
 
-While d3 does allow for the removal of elements dynamically using the `.exit()` function, the perceived gain in retaining all of the relationships between the visualization and the `shelves` array was low compared to the work required. Due to time constraints, it was decided that when an element is removed, that the vizualization is redrawn similar to what happens on the initial loading of an exiting configuration of the system. Being as the user's focus will likely be on the accordion elements during removal, this undesirable characteristic was decided to be okay for the first version of LASS.
+While d3 does allow for the removal of elements dynamically using the `.exit()` function, the perceived gain in retaining all of the relationships between the visualization and the `shelves` array was low compared to the work required. Due to time constraints, it was decided that when an element is removed, that the visualization is redrawn similar to what happens on the initial loading of an existing configuration of the system. Being as the user's focus will likely be on the accordion elements during removal, this undesirable characteristic was decided to be okay for the first version of LASS.
 
 #### Saving and loading editable attributes
 
-Enabling editable attributes was done using the X-editable javascript plugin. This allows the text the user enters to modify the `shelves` array. Each time a new field is added to an accordion panel, it needs to be made editable. This is done by checking which new fields exist and adding the editable events to them. An example for a field of class `motion` is shown below:
+Enabling editable attributes was done using the X-editable JavaScript plugin. This allows the text the user enters to modify the `shelves` array. Each time a new field is added to an accordion panel, it needs to be made editable. This is done by checking which new fields exist and adding the editable events to them. An example for a field of class `motion` is shown below:
 
 	$(".motion").not(".editable").editable({
 		... options ...
@@ -191,4 +190,4 @@ Where:
 
 #### d3.js
 
-Apart from the seemingly steep learning curve of d3.js, there were no additional factors that added to the diffuculty of creating the vizualization tab. All of the functionality implemented works in a standard way.
+Apart from the seemingly steep learning curve of d3.js, there were no additional factors that added to the difficulty of creating the visualization tab. All of the functionality implemented works in a standard way.
