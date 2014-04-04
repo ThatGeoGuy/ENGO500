@@ -4,17 +4,17 @@ layout: post
 title: Development Process - Technical Deliverables
 author: Jeremy Steward
 
-excerpt: For the third part in this series, I'll focus on discussing the progress the LASS project made up until December 2013, which was the mark of the 50% point of our project. In particular, some of the milestones we acheived were defining the use-cases for our future software / prototype development, discussed which sensors we would eventually use, and likewise identified some of the potential risks we might face as we moved forward in the project.
+excerpt: For the third and final part in this series, I'll focus on discussing the progress the LASS project made up until December 2013, which was the mark of the 75% point of our project. In particular, some of the milestones we acheived were defining the use-cases for our future software / prototype development, discussed which sensors we would eventually use, and likewise identified some of the potential risks we might face as we moved forward in the project.
 
 ---
-# Development Process: Technical Deliverables
+# Development Process: Technical Deliverables and Progress Report 
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-For the third part in this series, I'll focus on discussing the progress the LASS project made up until December 2013, which was the mark of the 50% point of our project. In particular, some of the milestones we acheived were defining the use-cases for our future software / prototype development, discussed which sensors we would eventually use, and likewise identified some of the potential risks we might face as we moved forward in the project. 
+For the third and final part in this series, I'll focus on discussing the progress the LASS project made up until December 2013, which was the mark of the 75% point of our project. In particular, some of the milestones we acheived were defining the use-cases for our future software / prototype development, discussed which sensors we would eventually use, and likewise identified some of the potential risks we might face as we moved forward in the project. 
 
-## Technical Deliverables
+## Technical Deliverables and Progress Report 
 
-Unlike previous milestones throughout our project, the technical deliverables report provided more of a progress summary of work done until the point it was submitted. The majority of the first four months of development was planning and research into the methods required to make the LASS project come to fruition. In particular, with the definition of the Use Cases and potential risks, we set out the framework which helped direct how we intended to develop the rest of the project. 
+Unlike previous milestones throughout our project, the technical deliverables report provided more of a progress summary of work done until the point it was submitted. The majority of the first four months of development was planning and research into the methods required to make the LASS project come to fruition. In particular, with the definition of the Use Cases and potential risks, we set out the framework which helped direct how we intended to develop the rest of the project. The two months after focused largely on implementing technical detail that can be better described in other posts.  
 
 ### Use Cases
 
@@ -65,13 +65,14 @@ The major risks we identified for the project at this point in time are listed b
 1. We were concerned that we would not be able to acquire our sensors in time, as we had believed that shipping times might pose a liability. Of course, this would not necessarily impede the progress of the website development, but could pose issues for finishing hte prototype development. 
 2. We felt that there was a chance that we might have ran the risk of developing the two sides of the project orthogonally to one another if we did not have strict adherence to the use cases. Fortunately our use-cases were well thought out at the time of writing, so we eventually found this to not be as big of an issue as we might have originally anticipated. 
 3. While we did do some cost analysis regarding the sensors, we didn't do an extensive study into what the typical cost might be for the end-product we wished to develop. Naturally, the cost of the sensors, while cheap, grows as more sensors are needed. However, we never identified the full cost per unit at that point in time, and ran the risk of having a project that others wouldn't try to use or develop off of if the cost of development caused a significant barrier to entry. 
+4. The group had concerns that when the sensors did ship, they might not function as expected, or they might be too sensitive to changes in the environment. For this reason, we felt that a certain amount of time would be required in order to properly calibrate these sensors properly. 
+5. Implementing the user system as described in the use case proved to be challenging, so we did potentially risk not having a fully fleshed out user system as described above. In the end, we found that adding user-tiers (regular user vs. system configurator) was too challenging and did not really add a significant return for the investment. Put plainly, even if we had different levels for users, the overall functionality of the project as a whole would not change. Additionally, as one of the objectives of our project was to help provide an example to help proliferate the OGC SensorThings API, the loss incurred by not implementing such a system would not significantly affect the outcome of this goal. 
+6. One of the most significant problems that we could rarely test was transferring large amounts of data to and from the SensorThings API server. When we initially started using the test server provided for us, we found that it reset itself quite frequently, which prevented us from being able to scale the project up to many sensors and observations. In the end, some specific limitations of the server were discovered, namely that it doesn't properly return `last-modified` fields in the HTTP headers, which created a huge inefficiency everytime we tried to download and test data (since we couldn't properly obtain HTTP 304 response codes). There were some other minor issues, but those will be the focus of another post. After identifying these issues and bringing them up with our supervisor, we managed to mitigate the largest challenges and still ship a working prototype of the entire system. 
 
-As always, feel free to read the full report on [Github](https://github.com/ThatGeoGuy/ENGO500/raw/master/Reports/Tech_Deliverables/GIS%26LT2_TechDeliverables_2013-12-06.pdf). The next post will give a summary of our development progress when we reached the 75% point in the project, so please look forward to that when it comes. 
+As always, feel free to read the full report(s) on Github[1](https://github.com/ThatGeoGuy/ENGO500/raw/master/Reports/Tech_Deliverables/GIS%26LT2_TechDeliverables_2013-12-06.pdf)[2](https://github.com/ThatGeoGuy/ENGO500/raw/master/Reports/Progress_Report/GIS%26LT2_ProgressReport_2014-02-14.pdf). The next post will give a summary of our development progress when we reached the 75% point in the project, so please look forward to that when it comes. 
 
 - - - 
 
 **Previous Post:** [Development Process: Literature Review]({{ site.baseurl }}/2014/04/02/development-process-literature-review/)
-
-**Next Post:** Coming Soon
 
 - - - 
