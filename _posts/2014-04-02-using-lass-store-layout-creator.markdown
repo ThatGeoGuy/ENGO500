@@ -4,13 +4,13 @@ layout: post
 title: Using LASS - Store Layout Creator
 author: Ben Trodd
 
-excerpt: The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we teach you how to use the system to build a model of your store within the LASS system.
+excerpt: In this post, we teach you how to use the system to build a model of your store within the LASS system.
 
 ---
 # Using LASS: Store Layout Creator
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model.
+In this post, we teach you how to use the system to build a model of your store within the LASS system.
 
 ## Store Layout Creator
 
@@ -54,6 +54,12 @@ With our Dog Food, Cat Food, Toys, and Bird Seed sections created, we have a goo
 
 ![A nice start to a store model]({{ site.url }}/ENGO500/images/storeLayoutCreator/Full.png)
 
-Alright! We have a pretty nice looking store. One last thing, Saving and Deleting the store layout. If you take a look at the bottom right hand side of the Store Layout, we can see buttons for each of these. Simply click the 'Save' button, and your layout will be saved to the database, which allows you to use and update it as you see fit. If you want to scrap the whole thing, press the Delete button and start again!
+Alright! We have a pretty nice looking store. When you are working in the Store Layout Creator, any changes you make are temporary until you choose to save them to the database. If you take a look at the bottom right hand side of the Store Layout, we can see buttons for 'Save' and 'Delete All'. Simply click the 'Save' button and your layout will now be available to use and update as you see fit. If you want to scrap the whole thing, press the 'Delete All' button and start again!
 
-While this serves as an introduction to the Store Layout Creator, there are still a few more steps needed to hook up your sensors in the store to your model on the website. We will dive into the details of that in the 'Using LASS - Getting observations from your sensors' post that follows.
+The next step of using the system is to link the store sections to the sensors you have set up in your store. If you would like an explanation of how these systems work together, check out [Using the Data Model]({{ site.url }}/ENGO500/2014/04/04/using-the-data-model/).
+
+Linking a sensor to a section is as easy as adding the URL of the datastream into the motion sensor text feild. For example, we can add a motion sensor to the 'Dog Food' section as follows:
+
+![Adding a motion sensor to the dog food section]({{ site.url }}/ENGO500/images/storeLayoutCreator/addingSensor.png)
+
+Linking a stock sensor is done in the same way, just use stock sensor text field instead. After you add all of your sensors, your store model will be ready to use. Don't forget to save your changes before exiting!

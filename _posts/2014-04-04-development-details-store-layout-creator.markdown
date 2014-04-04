@@ -1,13 +1,13 @@
 ---
 
 layout: post
-title: Development Details - Store Layout Creator
+title: Front End Development - Store Layout Creator
 author: Ben Trodd
 
 excerpt: The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we talk about the development details of the Store Layout Creator.
 
 ---
-# Development Details: Store Layout Creator
+# Front End Development: Store Layout Creator
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
 The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we talk about the development details of the Store Layout Creator.
@@ -106,8 +106,10 @@ Then we append them to `#parentAccordion`.
 	$parentAccordion.accordion("refresh");
 
 The accordion elements are created with the following:
+
 * The header (title bar) with `id="#ui-accordion-parentAccordion-header-" + n`
 * The panel (body) with `id="#ui-accordion-parentAccordion-panel-" + n`
+
 Where `n` is the nth element in the accordion.
 
 Utilizing these selectors, you can change the title and body contents. Additionally, by selecting the body of an accordion, you can attach a nested accordion by following the steps described above.
