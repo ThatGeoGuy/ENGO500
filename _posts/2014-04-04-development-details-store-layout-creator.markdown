@@ -3,6 +3,7 @@
 layout: post
 title: Development Details - Store Layout Creator
 author: Ben Trodd
+published: false
 
 excerpt: The Store Layout Creator page made up a significant portion of the front-end software development effort. There was a need to create a system by which the user can create a digital representation of a physical space. The format chosen was one that resembles inventory plans that are used in large stores to organize products. Efforts were made to build a system that can be altered dynamically in order to create an accurate and up to date model. In this post, we talk about the development details of the Store Layout Creator.
 
