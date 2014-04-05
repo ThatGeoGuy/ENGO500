@@ -45,15 +45,15 @@ After sending this request, we should have successfully created a new Thing with
 
 **Step 2: Obtain URI of Thing**
 
-You'll notice that we created a variable "r" along with our post request. Once the command is executed, "r" contains our response. We can find where our Thing is using the following code:
+You'll notice that we created a variable "r" along with our post request. Once the request is processed, "r" contains our response. We can find where our Thing is using the following code:
 
     thing_location = r.headers('location')
 
-Maybe you're wondering -- "Why do we have to do this at all? Can't we assign it a location?"
+Maybe you're wondering -- "Why do we have to do this at all? Can't we assign it a specific location?"
 
-Well, the easy answer is this: the way that the data service is currently set up, you don't assign your Thing an ID. You create a Thing, and its ID will automatically be assigned (for example, if there are already 7 Things on the server, your Thing will have ID = 8). 
+Well, the easy answer is this: the way that the data service is currently set up, you don't assign your Thing an ID. You create a Thing, and its ID will automatically be assigned (for example, if there are already 7 Things on the server, your Thing will have ID = 8). So no, you cannot assign a specific location or ID.
 
-Your thing_location should have a format something like this:
+Your thing_location, assuming an ID of 8, should have a format something like this:
 
     http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)
 
@@ -66,13 +66,13 @@ Just as Things are automatically assigned IDs, Datastreams are also assigned IDs
 Programmatically speaking, we can get our Datastream IDs if we know how many Datastreams we have (which we should -- we made them when we made our Thing). In our implementation, we achieved this with the getDatastreamID function:
 
     def getDatastreamID(self, dsIndex):
-    url= self.thing_location + '/Datastreams'
-    r = requests.get(url)
-    response = r.json()
-    datastreamID = response['Datastreams'][dsIndex]['ID']
-    return datastreamID
+        url= self.thing_location + '/Datastreams'
+        r = requests.get(url)
+        response = r.json()
+        datastreamID = response['Datastreams'][dsIndex]['ID']
+        return datastreamID
 
-dsIndex would be, in our case, either 0 or 1 -- 0 corresponds to the motion sensor and 1 corresponds to the photo interrupter (stock sensor).
+dsIndex would be, in our case, either 0 or 1: 0 corresponds to the motion sensor and 1 corresponds to the photo interrupter (stock sensor).
 
 **Step 4: Post Observations**
 
