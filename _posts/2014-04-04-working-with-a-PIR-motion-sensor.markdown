@@ -42,9 +42,7 @@ For this we implemented a short python script, beginning with the inclusion of t
 	else:
   		print('Port 18 is 0/GPIO.LOW/False')
 
-As you can probably tell from the above code, if the input of GPIO #18 is 1, then the sensor has been activated.  Otherwise, it is zero.
-
-To continuously check the status of the sensor, we used to following logic contained within a while loop:
+If the input of GPIO #18 is 1, then the sensor has been activated.  Otherwise, it is zero. To continuously check the status of the sensor, we used to following logic contained within a while loop:
 
 	try:
   		print "Waiting for PIR to settle ..."
