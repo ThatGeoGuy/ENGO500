@@ -13,6 +13,7 @@ excerpt: In a previous post, we explained how to POST observations. Now we'll ta
 In a previous post, we explained [how to POST observations](http://thatgeoguy.github.io/ENGO500/2014/04/04/post-ing-from-the-RPi/). Now we'll take a look at how to GET those observations, and how to do some fancy things with it.
 
 Making GET requests, in general, is easier than making POST requests. We are essentially just reading from the server what information is there, so all we really need is the correct URI to read from. In our case, we are interested in retrieving observations, which can be easily read from a URL provided you have the following information:
+
 * Thing ID (e.g. 7)
 * Datastream ID (e.g. 12)
 
