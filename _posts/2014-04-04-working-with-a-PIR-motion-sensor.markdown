@@ -4,14 +4,14 @@ layout: post
 title: Working with a PIR Motion Sensor
 author: Alexandra Cummins
 
-excerpt: One of the main focuses on the hardware side of LASS involved setting up a PIR sensor to track customer movement.  In this post we will look at what we did to include this equipment in our prototype development, in terms of wiring, python code, and design choices.
+excerpt: One of the main focuses on the hardware side of LASS was to use a PIR sensor to track customer movement.  In this post we will look at what we did to include this equipment in our prototype development, in terms of both wiring and python code.
  
 ---
 #  Working with a PIR Motion Sensor
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
 
-One of the main focuses on the hardware side of LASS involved setting up a [PIR sensor](https://www.sparkfun.com/products/8630) to track customer movement.  In this post we will look at what we did to include this equipment in our prototype development, in terms of wiring, python code, and design choices.
+One of the main focuses on the hardware side of LASS involved setting up a [PIR sensor](https://www.sparkfun.com/products/8630) to track customer movement.  In this post we will look at what we did to include this equipment in our prototype development, in terms of both wiring and python code.
 
 
 
@@ -27,7 +27,8 @@ For the PIR, you will notice that it has three connections: DC 12V, Alarm, and G
 
 ##Coding in Python
 
-Now that the sensor was set up, something had to read and record the data once it reached the RaspberryPi on the other side of the breakout cable.  For this we implemented a short python script, beginning with the inclusion of the GPIO library, the pin set-up, and a quick connection check.  It is also necessary to specify the numbering mode of the GPIO pin, since more than one exists.  We used BCM, or Broadcom.
+Once the sensor was set up, something had to read and record the data once it reached the RaspberryPi on the other side of the breakout cable.  
+For this we implemented a short python script, beginning with the inclusion of the GPIO library, the pin set-up, and a quick connection check.  It is also necessary to specify the numbering mode of the GPIO pin, since there exists more than one.  We used BCM, or Broadcom.
 
 	import RPi.GPIO as GPI
 	GPIO.setmode(GPIO.BCM)
