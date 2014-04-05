@@ -16,7 +16,9 @@ One of the sensors that we are using is called a Photo Interrupter. A Photo Inte
 Initially, we were debating between using either a Photo interrupter or a Magnetometer, but we decided that a Photo Interrupter served better for the purpose of our project. 
 
 As mentioned [in this article]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/), this sensor has 5 pins and the following diagram can be used to connect this sensor to the breadboard.
+
 ![photoint]({{ site.baseurl }}/images/sensors/photoint.png)
+
 For this sensor, there are three pins on one side and two pins on the other side. For the side that has 2 pins, the shorter pin in the anode and the longer pin is the cathode. The side that has 3 pins, the small one corresponds to Vo, the long one corresponds to Vcc, and the medium one corresponds to the ground. 
 
 Note: Understanding the diagram above is very important because there is a high chance of frying the sensor.  
@@ -28,6 +30,7 @@ When someone is standing in front of the sensor, it detects that person and send
 This sensor has three different connections: The connections being DC 12V, Alarm and Ground. 
 
 The diagram below was followed in order to connect this sensor to the Raspberry Pi. The red wire goes to 5V, the yellow wire goes to GPIO pin#18, and the black wire goes to ground. 
+
 ![pir]({{ site.baseurl }}/images/sensors/pir.png) 
 
 Note: Understanding the above diagram is very important. 
@@ -38,4 +41,5 @@ The equipment that is currently being used are 3 Raspberry pi's, 3 Photo Interru
 The functionality of the LED on the breadboard is that if there is a motion detected or if there is an object in between the sensor, the LED light goes off. 
 
 The diagram below shows how the sensors are connected to the raspberry pi. Hopefully this helps! 
+
 ![Sensor set up]({{ site.baseurl }}/images/sensors/DSC00936.jpg)
