@@ -9,7 +9,7 @@ excerpt: As much as we enjoyed messing with sensors, the LASS prototype wasn't s
 # Improving Prototype Usability
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-Ultimately, as much as we enjoyed [playing with sensors]({{ site.baseurl }}/2014/04/05/prototype-development-hardware/), the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a [store manager]({{ site.baseurl }}/2014/04/04/front-end-development-store-viewer/) - can just plug it in and go.
+As much as we enjoyed [playing with sensors]({{ site.baseurl }}/2014/04/05/prototype-development-hardware/), the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a [store manager]({{ site.baseurl }}/2014/04/04/front-end-development-store-viewer/) - can just plug it in and go.
 
 ##Plug In and Go
 
@@ -25,12 +25,12 @@ Now that the sensors have been tested and are [fully operational](https://encryp
 
 To run the sensor scripts automatically without help of any screen, mouse, or keyboard, we set the scripts to run on start up.  This was completed via the following steps in terminal:
 
-1. Create a folder in which to store the auto running script
+Create a folder in which to store the auto running script
 
 	mkdir./bin
 	cd ./bin
 
-2. Create and edit the script
+Create and edit the script
 
 	sudo nano script_auto_run
 	#!/bin/bash
@@ -38,11 +38,11 @@ To run the sensor scripts automatically without help of any screen, mouse, or ke
 	echo "Doing autorun script..."
 	sudo ...path.a & 
 
-3. Making the script executable
+Making the script executable
 
 	sudo chmod 755 script_auto_run
 
-4. Setting the script to run
+Setting the script to run
 
 	sudo nano /etc/rc.local
 	add this line:
