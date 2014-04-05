@@ -55,31 +55,30 @@ One of the challenges we ran into was managing the many GET requests being made 
 
 To make the asynchronous requests work, we created a separate function containing the GET request itself, which would also take in arguments for the shelf and section indices. This took care of the latency issue. (Sometimes, the response for one section would be drawn onto a different section because of the time lag). Here is an example of that code:
 
-	function doGet(shelfInd, sectionInd, URL, type) {
-		jQuery.get(URL, function ( data, textStatus, xhr ) {
-			if(xhr.status < 400){
-				shelves[shelfInd].sections[sectionInd].obs = data;
-				//Call function to render observations
-			}
-		});
-	}
-	
-	// "Main" script
-	for( var i = 0; i < shelves.length; i++ )	{
-		for( var j = 0; j < shelves[i].sections.length; j++){
-			// Set the url depending on what type of observation it is
-			if (obsType == "motion"){ // PIR Motion sensor
-				var obsURL = shelves[i].sections[j].pirURL;
-			} else if (obsType == "stock"){ // Photo interrupter
-				var obsURL = shelves[i].sections[j].pintURL;
-			}
-
-			if( obsURL != null ){
-				// Pass the variables of the get to a function so that indices don't get borked
-				doGet(i,j, obsURL, obsType);
-			}
-		}
-	}
+    function doGet(shelfInd, sectionInd, URL, type) {
+        jQuery.get(URL, function ( data, textStatus, xhr ) {
+            if(xhr.status < 400){
+                shelves[shelfInd].sections[sectionInd].obs = data;
+                //Call function to render observations
+            }
+        });
+    }
+    
+    // "Main" script
+    for( var i = 0; i < shelves.length; i++ )	{
+        for( var j = 0; j < shelves[i].sections.length; j++){
+            // Set the url depending on what type of observation it is
+            if (obsType == "motion"){ // PIR Motion sensor
+                var obsURL = shelves[i].sections[j].pirURL;
+            } else if (obsType == "stock"){ // Photo interrupter
+                var obsURL = shelves[i].sections[j].pintURL;
+            }
+            if( obsURL != null ){
+            // Pass the variables of the get to a function so that indices don't get borked
+                doGet(i,j, obsURL, obsType);
+            }
+        }
+    }
 
 #### Displaying Overall Statistics
 
