@@ -16,7 +16,7 @@ One of the sensors that we are using is called a Photo Interrupter. A Photo Inte
 Initially, we were debating between using either a Photo interrupter or a Magnetometer, but we decided that a Photo Interrupter served better for the purpose of our project. 
 
 As mentioned [in]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/), this sensor has 5 pins and the following diagram can be used to connect this sensor to the breadboard.
-![PhotoInt diagram]({{ site.baseurl }}/images/sensors/photoint.PNG)
+![photoint]({{ site.baseurl }}/images/sensors/photoint.png)
 For this sensor, there are three pins on one side and two pins on the other side. For the side that has 2 pins, the shorter pin in the anode and the longer pin is the cathode. The side that has 3 pins, the small one corresponds to Vo, the long one corresponds to Vcc, and the medium one corresponds to the ground. 
 
 Note: Understanding the diagram above is very important because there is a high chance of frying the sensor.  
