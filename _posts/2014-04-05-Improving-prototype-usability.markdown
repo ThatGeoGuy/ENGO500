@@ -27,29 +27,31 @@ To run the sensor scripts automatically without help of any screen, mouse, or ke
 
 Create a folder in which to store the auto running script
 
-	mkdir./bin
-	cd ./bin
+	$ mkdir ~/bin
+	$ cd ~/bin
 
 Create and edit the script
 
-	sudo nano script_auto_run
+	# sudo nano script_auto_run
+
 	#!/bin/bash
 	# Script to start our application
 	echo "Doing autorun script..."
-	sudo ...path.a & 
+	sudo /path/to/script & 
 
 Making the script executable
 
-	sudo chmod 755 script_auto_run
+	# chmod +x script_auto_run
 
 Setting the script to run
 
-	sudo nano /etc/rc.local
-	add this line:
+	# nano /etc/rc.local
+
+add the following line to the end of the file:
+
 	/home/pi/bin/script_auto_run
 
 Saving the path of script_auto_run in this file will run the application on start up.
-
 
 ##LEDs for Posting Observations
 

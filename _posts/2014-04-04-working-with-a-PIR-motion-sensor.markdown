@@ -10,10 +10,7 @@ excerpt: One of the main focuses on the hardware side of LASS was to use a PIR s
 #  Working with a PIR Motion Sensor
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-
 One of the main focuses on the hardware side of LASS involved setting up a [PIR sensor](https://www.sparkfun.com/products/8630) to track customer movement.  In this post we will look at what we did to include this equipment in our prototype development, in terms of both wiring and python code.
-
-
 
 ##Wiring
 
@@ -23,47 +20,44 @@ For the PIR, you will notice that it has three connections: DC 12V, Alarm, and G
 
 ![PIR sensor set up]({{ site.baseurl }}/images/sensors/DSC00952.JPG)
 
-
-
 ##Coding in Python
 
 Once the sensor was set up, something had to read and record the data once it reached the RaspberryPi on the other side of the breakout cable.
   
 For this we implemented a short python script, beginning with the inclusion of the GPIO library, the pin set-up, and a quick connection check.  It is also necessary to specify the numbering mode of the GPIO pin, since there exists more than one.  We used BCM, or Broadcom.
 
-	import RPi.GPIO as GPI
-	GPIO.setmode(GPIO.BCM)
-	GPIO_PIR = 18
-	
-	GPIO.setup(GPIO_PIR,GPIO.IN) 
-	
-	if GPIO.input(18):
-  		print('Port 18 is 1/GPIO.HIGH/True')
-	else:
-  		print('Port 18 is 0/GPIO.LOW/False')
+    import RPi.GPIO as GPI
+    GPIO.setmode(GPIO.BCM)
+    GPIO_PIR = 18
+    
+    GPIO.setup(GPIO_PIR,GPIO.IN) 
+    
+    if GPIO.input(18):
+        print('Port 18 is 1/GPIO.HIGH/True')
+    else:
+        print('Port 18 is 0/GPIO.LOW/False')
 
 If the input of GPIO #18 is 1, then the sensor has been activated.  Otherwise, it is zero. To continuously check the status of the sensor, we used to following logic contained within a while loop:
 
-	try:
-  		print "Waiting for PIR to settle ..."
-  		while GPIO.input(GPIO_PIR)==0:
-    		Current_State  = 1
-  		while True :
-    			# Read PIR state
-    			Current_State = GPIO.input(GPIO_PIR)
-   		
-    			if Current_State==0 and Previous_State==1:
-      				# PIR is triggered
-     				Previous_State=0
-    			elif Current_State==1 and Previous_State==0:
-      				# PIR has returned to ready state
-      				Previous_State=1
-			time.sleep(0.01)      
-	except KeyboardInterrupt:
-  	GPIO.cleanup()
+    try:
+        print "Waiting for PIR to settle ..."
+        while GPIO.input(GPIO_PIR)==0:
+            Current_State  = 1
+        while True :
+                # Read PIR state
+                Current_State = GPIO.input(GPIO_PIR)
+        
+                if Current_State==0 and Previous_State==1:
+                    # PIR is triggered
+                    Previous_State=0
+                elif Current_State==1 and Previous_State==0:
+                    # PIR has returned to ready state
+                    Previous_State=1
+            time.sleep(0.01)      
+    except KeyboardInterrupt:
+        GPIO.cleanup()
 
 Since we are sending observations to the server in real time, this code allows us to send only when the PIR transition between steady and triggered states.  Since the sleep time is so small, it helps us avoid constant triggers during high movement periods or periods of complete rest, while still posting in real time.
-
 
 ##Other Issues
 

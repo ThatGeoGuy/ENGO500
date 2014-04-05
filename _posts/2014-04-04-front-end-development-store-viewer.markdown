@@ -65,7 +65,7 @@ To make the asynchronous requests work, we created a separate function containin
     }
     
     // "Main" script
-    for( var i = 0; i < shelves.length; i++ )	{
+    for( var i = 0; i < shelves.length; i++ )   {
         for( var j = 0; j < shelves[i].sections.length; j++){
             // Set the url depending on what type of observation it is
             if (obsType == "motion"){ // PIR Motion sensor

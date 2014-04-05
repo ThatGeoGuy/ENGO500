@@ -23,38 +23,37 @@ Another interesting thing is that both sides of the Photo Interrupter are wired 
 
 Since each side is independent (one is a simple capacitor), the sensor has two ground connections (one with a resistor) and two voltage connections.  On the detector side, there is an alarm connection, which we attached to GPIO # 17.
 
-
 ##Coding in Python
 
 As described in my post about the [PIR Motion Sensor]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/), the GPIO pins were set up and tested.
 
-	import RPi.GPIO as GPI
-	GPIO.setmode(GPIO.BCM)
-	GPIO_Pint = 17
-	
-	GPIO.setup(GPIO_Pint,GPIO.IN) 
-	
-	if GPIO.input(17):
-  		print('Port 17 is 1/GPIO.HIGH/True')
-	else:
-  		print('Port 17 is 0/GPIO.LOW/False')
+    import RPi.GPIO as GPI
+    GPIO.setmode(GPIO.BCM)
+    GPIO_Pint = 17
+    
+    GPIO.setup(GPIO_Pint,GPIO.IN) 
+    
+    if GPIO.input(17):
+        print('Port 17 is 1/GPIO.HIGH/True')
+    else:
+        print('Port 17 is 0/GPIO.LOW/False')
 
 This time, the steady state of the sensor would not rest at zero, but at one. Using a while loop to continuously check the sensor status, we used the following logic to isolate instances in which the sensor transitions from steady state to triggered state.  Only under these conditions will it attempt to [post an observation to the server]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  This eliminates the constant stream of zeros that it would otherwise post once it is triggered. 
 
-	Switch_State = 1
-	Prev_Switch_State = 1
-	try:
-		Switch_State = GPIO.input(17)
-    		if Switch_State == 0 and PSS == 1:
-       			#SWITCH STATE IS ZERO
-			#post obs
-       			Prev_Switch_State = 0
-    		elif Switch_State == 1 and PSS == 0:
-       			#Switch is reset
-			#post obs
-        		PSS = 1
-   		 time.sleep(0.01)      
-	except KeyboardInterrupt:
-	GPIO.cleanup()
+    Switch_State = 1
+    Prev_Switch_State = 1
+    try:
+        Switch_State = GPIO.input(17)
+            if Switch_State == 0 and PSS == 1:
+                #SWITCH STATE IS ZERO
+            #post obs
+                Prev_Switch_State = 0
+            elif Switch_State == 1 and PSS == 0:
+                #Switch is reset
+            #post obs
+                PSS = 1
+         time.sleep(0.01)      
+    except KeyboardInterrupt:
+        GPIO.cleanup()
 
 And not only that - it allows us to post at both instances in time: when the switch was triggered, and when it returned to steady state. In other words - when the shelf became unfaced and when it was stocked up again.  Both of these transitions of state would be valuable information to a store owner.
