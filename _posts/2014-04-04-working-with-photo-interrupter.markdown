@@ -17,7 +17,7 @@ This small sensor has [five pins](https://www.sparkfun.com/datasheets/Components
 ##Wiring
 Since the Photo Interrupter is pretty much symmetrical, it is important to note that the data sheet diagram shows the sensor FROM ABOVE (as confirmed by the small and barely noticeable capacitor icon on the tip of one if the prongs).  Mixing this up has the potential to result in roasted equipment.
 
-![PhotoInt diagram]({{ site.baseurl }}/images/sensors/photoint.PNG)
+![PhotoInt diagram]({{ site.baseurl }}/images/sensors/photoint.png)
 
 Another interesting thing is that both sides of the Photo Interrupter are wired individually.  This gives us the option of splitting it in half to widen the gap between prongs if need be.
 
