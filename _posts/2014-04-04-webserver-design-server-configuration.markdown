@@ -58,9 +58,9 @@ First and foremost, it's typically easier to create additional pages using templ
 
 ### Models (models/)
 
-Like with the views directory, the `models/` directory specifies the *models* component of our MVC framework. In particular, this directory only contains one file, which defines the model that defines our database. The specifics of the model itself are saved for another post, but if you want to extend our model beyond login information and store layout data, modifying or adding a schema to this folder would be the first place to start. Note that it may also be necessary to edit other areas of the code to accomodate new models, however this will vary depending on the scale of change you wish to make. 
+Like with the views directory, the `models/` directory specifies the *models* component of our MVC framework. In particular, this directory only contains one file, which defines the model that defines our database. The specifics of the model itself are saved for another post, but if you want to extend our model beyond login information and store layout data, modifying or adding a schema to this folder would be the first place to start. Note that it may also be necessary to edit other areas of the code to accommodate new models, however this will vary depending on the scale of change you wish to make. 
 
-### Configuration (/config)
+### Configuration (config/)
 
 Lastly, configuration for various components within the *controllers* is put in the `config/` folder. An example is the global configuration, which lies in `config.js`. In particular, we defined two configuration types: development and production. This way, our server can run in either mode, and change the configuration dynamically without having to change anything between the two servers. 
 
