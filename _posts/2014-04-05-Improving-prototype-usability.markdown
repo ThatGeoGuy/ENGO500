@@ -2,7 +2,7 @@
 
 layout: post
 title: Improving Prototype Usability
-author: Alexandra Cummins
+author: Alexandra Cummins (and Harshini Nanduri)
 
 excerpt: As much as we enjoyed messing with sensors, the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a store manager - can just plug it in and go.
 ---
@@ -13,7 +13,7 @@ As much as we enjoyed [playing with sensors]({{ site.baseurl }}/2014/04/05/proto
 
 ##Plug In and Go
 
-During the development process, we found the most efficient way to get things done was to write code directly on the RaspberryPi itself.  This allowed us to test the sensor functions and GPIO libraries as we went along, but also required us to view the display via HDMI cable.  
+During the development process, we found the most efficient way to get things done was to write code directly onto the RaspberryPi itself.  This allowed us to test the sensor functions and GPIO libraries as we went along, but also required us to view the display via HDMI cable.  
 
 Now that the sensors have been tested and are [fully operational](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTmiml_wmLBeANGy9MOW8lsaHuxwfXtIpNuorQbyMOTvaHW8P4s), there is no longer a need to view the screen or interact with the interface at all, on the conditions that we:
  
@@ -40,6 +40,7 @@ The script should read:
 	# Script to start our application
 	echo "Doing autorun script..."
 	sudo /path/to/script & 
+(If you wanted to add a python file, the last line would read "sudo python /path/...")
 
 Make the script executable (again, as root)
 
@@ -57,7 +58,7 @@ Saving the path of script_auto_run in this file will run the application on star
 
 ##LEDs for Posting Observations
 
-The second condition as listed above was satisfied by setting an LED to blink once an [observation was confirmed to be posted]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  We managed this by connecting an LED to a GPIO pin on the RaspberryPi, with wiring similar to the diagram below. The resistor used was 330 ohms.
+The second condition as listed above was satisfied by setting an LED to blink once an [observation was confirmed to be posted]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  We managed this by connecting an LED to a GPIO pin on the RaspberryPi, with wiring similar to the diagram below. The resistor used was 330 ohms. It is important to use the 330Ohm resistor only because otherwise it would be giving you many errors. 
 
 ![LED diagram]({{ site.baseurl }}/images/sensors/ledp.PNG)
 
