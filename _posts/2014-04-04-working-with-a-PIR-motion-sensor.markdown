@@ -65,6 +65,6 @@ If the input of GPIO #18 is 1, then the sensor has been activated.  Otherwise, i
 Since we are sending observations to the server in real time, this code allows us to send only when the PIR transition between steady and triggered states.  Since the sleep time is so small, it helps us avoid constant triggers during high movement periods or periods of complete rest, while still posting in real time.
 
 
-##Other Challenges
+##Other Issues
 
 The PIR sensor turned out to be extremely sensitive, to the point where it would be constantly triggered by nothing at all.  We managed to calm it down by placing a resistor between the voltage and alarm connections.  You can see it in the above picture.
