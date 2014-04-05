@@ -39,9 +39,7 @@ As described in my post about the [PIR Motion Sensor]({{ site.baseurl }}/2014/04
 	else:
   		print('Port 17 is 0/GPIO.LOW/False')
 
-This time, the steady state of the sensor would not rest at zero, but at one. Using a while loop to continuously check the sensor status, we used the following logic to isolate instances in which the sensor transitions from steady state to triggered state.  Only under these conditions will it attempt to [post an observation to the server]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  This eliminates the constant stream of 0s that it would otherwise post once it is triggered. 
-
-And not only that - it allows us to post at both instances in time: when the switch was triggered, and when it returned to steady state. In other words - when the shelf became unfaced and when it was stocked up again.  Both of these transitions of state would be valuable information to a store owner.
+This time, the steady state of the sensor would not rest at zero, but at one. Using a while loop to continuously check the sensor status, we used the following logic to isolate instances in which the sensor transitions from steady state to triggered state.  Only under these conditions will it attempt to [post an observation to the server]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  This eliminates the constant stream of zeros that it would otherwise post once it is triggered. 
 
 	Switch_State = 1
 	Prev_Switch_State = 1
@@ -58,3 +56,5 @@ And not only that - it allows us to post at both instances in time: when the swi
    		 time.sleep(0.01)      
 	except KeyboardInterrupt:
 	GPIO.cleanup()
+
+And not only that - it allows us to post at both instances in time: when the switch was triggered, and when it returned to steady state. In other words - when the shelf became unfaced and when it was stocked up again.  Both of these transitions of state would be valuable information to a store owner.
