@@ -54,13 +54,13 @@ Well, the easy answer is this: the way that the data service is currently set up
 
 Your thing_location should have a format something like this:
 
-		http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)
+	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)
 
 **Step 3: Obtain assigned Datastream IDs**
 
 Just as Things are automatically assigned IDs, Datastreams are also assigned IDs. Because each Thing has its own associated Datastreams, we can take a look at all of them just by visiting this URL:
 
-		http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)/Datastreams
+	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)/Datastreams
 
 Programmatically speaking, we can get our Datastream IDs if we know how many Datastreams we have (which we should -- we made them when we made our Thing). In our implementation, we achieved this with the getDatastreamID function:
 
