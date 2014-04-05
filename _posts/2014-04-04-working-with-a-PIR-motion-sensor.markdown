@@ -18,7 +18,7 @@ Since none of us had much experience with electronics when we started this proje
 
 For the PIR, you will notice that it has three connections: DC 12V, Alarm, and Ground. Using a Raspberry Pi, a breakout cable and a breadboard, we were able to simply connect each of these to their respective pins as shown below.  For the alarm connection, we used GPIO Pin #18.  
 
-![PIR sensor set up]({{ site.baseurl }}/images/sensors/DSC00952.JPG)
+![PIR sensor set up]({{ site.baseurl }}/images/sensors/DSC00952.jpg)
 
 ##Coding in Python
 
