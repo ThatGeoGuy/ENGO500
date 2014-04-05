@@ -4,7 +4,7 @@ layout: post
 title: POST-ing from the RPi
 author: Kathleen Ang
 
-excerpt: We went through a simple walkthrough of how to POST data to the SensorThings API data service]. Now we'll look at the details for how we formatted and sent our data.
+excerpt: We went through a simple walkthrough of how to POST data to the SensorThings API data service. Now we'll look at the details for how we formatted and sent our data.
 
 ---
 # POST-ing from the RPi
