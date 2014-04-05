@@ -7,7 +7,7 @@ author: Jeremy Steward
 excerpt: This post discusses how the code and structure of the server is laid out in the ENGO500-Webserver repository. Hopefully, this article will provide some insight into how the project was structured from a software point of view, and likewise should give you enough information to hack and modify the webserver to suit your own needs. 
 
 ---
-# Webserver Design: Basics
+# Webserver Design: Server Configuration
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
 This post discusses how the code and structure of the server is laid out in the ENGO500-Webserver repository. Hopefully, this article will provide some insight into how the project was structured from a software point of view, and likewise should give you enough information to hack and modify the webserver to suit your own needs. 
