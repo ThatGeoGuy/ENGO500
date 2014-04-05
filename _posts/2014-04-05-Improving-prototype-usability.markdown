@@ -30,20 +30,22 @@ Create a folder in which to store the auto running script
 	$ mkdir ~/bin
 	$ cd ~/bin
 
-Create and edit the script
+Create and edit the script as root: 
 
-	# sudo nano script_auto_run
+	# nano script_auto_run
+
+The script should read: 
 
 	#!/bin/bash
 	# Script to start our application
 	echo "Doing autorun script..."
 	sudo /path/to/script & 
 
-Making the script executable
+Make the script executable (again, as root)
 
 	# chmod +x script_auto_run
 
-Setting the script to run
+Lastly, make the following edits as root to /etc/rc.local
 
 	# nano /etc/rc.local
 
