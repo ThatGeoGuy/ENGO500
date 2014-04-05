@@ -4,12 +4,12 @@ layout: post
 title: Working with a Breadboard and Pi Cobbler
 author: Harshini Nanduri
 
-excerpt: This post is going to talk about how to work with a Breadboard and how to read the Pi Cobbler.  
+excerpt: This post is going to be talking about how to work with a Breadboard and how to read the Pi Cobbler.  
 ---
 #Working with a Breadboard
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-This post is going to talk about how to work with a Breadboard and how to read the Pi Cobbler.  
+This post is going to be talking about how to work with a Breadboard and how to read the Pi Cobbler.  
 
 ##Breadboard
 A breadboard is used to build and test circuits quickly before finalizing any circuit design. The Breadboard has many holes into which components like wires, resistors, pi cobblers can be inserted. 
