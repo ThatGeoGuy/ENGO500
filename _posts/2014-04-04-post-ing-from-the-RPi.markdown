@@ -29,10 +29,13 @@ To create the Thing, you need to make a POST request to the Things collection at
 
 The body of the post will appear as follows:
 
-    postBody = {'Description': 'This is a Raspberry Pi on a shelf',
-                'Datastreams':
-     		    [{'Description': 'This is a datastream for measuring people traffic'},
-      		    {'Description': 'This is a datastream for measuring shelf stock'}]}
+    postBody = {
+        'Description': 'This is a Raspberry Pi on a shelf',
+        'Datastreams': [
+             {'Description': 'This is a datastream for measuring people traffic'},
+             {'Description': 'This is a datastream for measuring shelf stock'}
+        ]
+    }
 
 If you're using Python 2.7 (as we were), you can use the [Requests](http://docs.python-requests.org/en/latest/) library, which makes HTTP requests quite intuitive. It will look something like this:
 
@@ -82,12 +85,13 @@ This final step is the only one that should be executed more than once. Now that
 
 In order to attach the Observations to the proper Datastream, this should be included in the body of response. An example Observation post in the program is shown below:
 
-    payloadOBS = {'Time':time.strftime('%FT%T%z'),
-                  'ResultValue':'1',
-                  'ResultType':'Measure',
-                  'Datastream':{'ID':datastreamID},
-                  'Sensor' : {'ID' : self.sensorID}
-                  }
+    payloadOBS = {
+        'Time':         time.strftime('%FT%T%z'),
+        'ResultValue':  '1',
+        'ResultType':   'Measure',
+        'Datastream':   {'ID':datastreamID},
+        'Sensor':       {'ID':self.sensorID}
+    }
 
 For our observations, the Time property is created such that it matches the ISO 8601 date format. The ResultValue is either 0 or 1, the ResultType is always 'Measure', and the 'Datastream' ID is obtained from step 3. 
 

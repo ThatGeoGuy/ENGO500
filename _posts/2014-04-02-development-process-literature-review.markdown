@@ -78,6 +78,6 @@ From this point, we continued to plan a development methodology for both branche
 
 **Previous Post:** [Development Process: Project Proposal]({{ site.baseurl }}/2014/04/01/development-process-project-proposal/)
 
-**Next Post:** [Development Process: Technical Deliverables]({{ site.baseurl }}/2014/04/03/development-process-technical-deliverables/)
+**Next Post:** [Development Process: Technical Deliverables]({{ site.baseurl }}/2014/04/03/development-process-technical-deliverables-progress-report/)
 
 * * *

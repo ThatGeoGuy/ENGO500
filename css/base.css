@@ -2,7 +2,13 @@
  * Globals
  */
 
+html { 
+  position: relative;
+  min-height: 100%; 
+}
+
 body {
+  margin-bottom: 250px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
 }
@@ -116,7 +122,7 @@ img {
 }
 .sidebar-module-inset {
   padding: 15px;
-  background-color: #f5f5f5;
+  background-color: #e7e7e7;
   border-radius: 4px;
 }
 .sidebar-module-inset p:last-child,
@@ -145,7 +151,7 @@ img {
 }
 .pager > a:hover { 
 	text-decoration: none;
-	background-color: #f5f5f5;
+	background-color: #e7e7e7;
 }
 
 /*
@@ -167,9 +173,13 @@ img {
  */
 
 .blog-footer {
+  position: absolute;
+  bottom: 0;
   padding: 40px 0;
+  width: 100%;
+  height: 200px;
   color: #666;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: #e7e7e7;
   border-top: 1px solid #e5e5e5;
 }
