@@ -27,7 +27,8 @@ For the PIR, you will notice that it has three connections: DC 12V, Alarm, and G
 
 ##Coding in Python
 
-Once the sensor was set up, something had to read and record the data once it reached the RaspberryPi on the other side of the breakout cable.  
+Once the sensor was set up, something had to read and record the data once it reached the RaspberryPi on the other side of the breakout cable.
+  
 For this we implemented a short python script, beginning with the inclusion of the GPIO library, the pin set-up, and a quick connection check.  It is also necessary to specify the numbering mode of the GPIO pin, since there exists more than one.  We used BCM, or Broadcom.
 
 	import RPi.GPIO as GPI
