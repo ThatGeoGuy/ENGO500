@@ -24,19 +24,19 @@ Before sending observations to the data service, it's necessary to create the ap
 
 To create the Thing, you need to make a POST request to the Things collection at the root URI:
 
-	url = http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things
+    url = http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things
 
 The body of the post will appear as follows:
 
-	postBody = {'Description': 'This is a Raspberry Pi on a shelf',
-		'Datastreams':
+    postBody = {'Description': 'This is a Raspberry Pi on a shelf',
+                'Datastreams':
      		[{'Description': 'This is a datastream for measuring people traffic'},
       		{'Description': 'This is a datastream for measuring shelf stock'}]}
 
 If you're using Python 2.7 (as we were), you can use the [Requests](http://docs.python-requests.org/en/latest/) library, which makes HTTP requests quite intuitive. It will look something like this:
 
-	headers = {'content-type': 'application/json'}
-	r = requests.post(url, data = json.dumps(postBody), headers = headers)
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data = json.dumps(postBody), headers = headers)
 
 (You'll need to import both requests and json libraries)
 
@@ -46,7 +46,7 @@ After sending this request, we should have successfully created a new Thing with
 
 You'll notice that we created a variable "r" along with our post request. Once the command is executed, "r" contains our response. We can find where our Thing is using the following code:
 
-	thing_location = r.headers('location')
+    thing_location = r.headers('location')
 
 Maybe you're wondering -- "Why do we have to do this at all? Can't we assign it a location?"
 
@@ -54,22 +54,22 @@ Well, the easy answer is this: the way that the data service is currently set up
 
 Your thing_location should have a format something like this:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)
 
 **Step 3: Obtain assigned Datastream IDs**
 
 Just as Things are automatically assigned IDs, Datastreams are also assigned IDs. Because each Thing has its own associated Datastreams, we can take a look at all of them just by visiting this URL:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)/Datastreams
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(8)/Datastreams
 
 Programmatically speaking, we can get our Datastream IDs if we know how many Datastreams we have (which we should -- we made them when we made our Thing). In our implementation, we achieved this with the getDatastreamID function:
 
-	def getDatastreamID(self, dsIndex):
-        url= self.thing_location + '/Datastreams'
-        r = requests.get(url)
-        response = r.json()
-        datastreamID = response['Datastreams'][dsIndex]['ID']
-        return datastreamID
+    def getDatastreamID(self, dsIndex):
+    url= self.thing_location + '/Datastreams'
+    r = requests.get(url)
+    response = r.json()
+    datastreamID = response['Datastreams'][dsIndex]['ID']
+    return datastreamID
 
 dsIndex would be, in our case, either 0 or 1 -- 0 corresponds to the motion sensor and 1 corresponds to the photo interrupter (stock sensor).
 
@@ -77,16 +77,16 @@ dsIndex would be, in our case, either 0 or 1 -- 0 corresponds to the motion sens
 
 This final step is the only one that should be executed more than once. Now that everything has been set up, we can post observations as we read them in real time. They will be posted to the Observations collection, for example:
 
-	http://demo.student.geocens.ca:808/SensorThings_V1.0/Observations
+    http://demo.student.geocens.ca:808/SensorThings_V1.0/Observations
 
 In order to attach the Observations to the proper Datastream, this should be included in the body of response. An example Observation post in the program is shown below:
 
-	payloadOBS = {'Time':time.strftime('%FT%T%z'),
-                     'ResultValue':'1',
-                     'ResultType':'Measure',
-                     'Datastream':{'ID':datastreamID},
-                     'Sensor' : {'ID' : self.sensorID}
-                     }
+    payloadOBS = {'Time':time.strftime('%FT%T%z'),
+                  'ResultValue':'1',
+                  'ResultType':'Measure',
+                  'Datastream':{'ID':datastreamID},
+                  'Sensor' : {'ID' : self.sensorID}
+                  }
 
 For our observations, the Time property is created such that it matches the ISO 8601 date format. The ResultValue is either 0 or 1, the ResultType is always 'Measure', and the 'Datastream' ID is obtained from step 3. 
 
