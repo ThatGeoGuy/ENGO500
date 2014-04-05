@@ -60,7 +60,7 @@ Saving the path of script_auto_run in this file will run the application on star
 
 The second condition as listed above was satisfied by setting an LED to blink once an [observation was confirmed to be posted]({{ site.baseurl }}/2014/04/04/post-ing-from-the-RPi/).  We managed this by connecting an LED to a GPIO pin on the RaspberryPi, with wiring similar to the diagram below. The resistor used was 330 ohms. It is important to use the 330Ohm resistor only because otherwise it would be giving you many errors. 
 
-![LED diagram]({{ site.baseurl }}/images/sensors/ledp.PNG)
+![LED diagram]({{ site.baseurl }}/images/sensors/ledp.png)
 
 The GPIO pin used was pin #4 in terms BCM references, and it was set up in much the same way as the [GPIO pins #17]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/) and [#18]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/), except it was set to output rather than input.
 
