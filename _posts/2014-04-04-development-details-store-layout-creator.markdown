@@ -198,6 +198,7 @@ The options that need to be defined to allow the manipulation of the `shelves` o
 	}
 
 Where:
+
 * `defaultValue` is what appears in the editable box
 * `success` is what to do when the user enters a value
 * `display` is what to display when the editable feild is created
