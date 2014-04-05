@@ -31,8 +31,8 @@ The body of the post will appear as follows:
 
     postBody = {'Description': 'This is a Raspberry Pi on a shelf',
                 'Datastreams':
-     		[{'Description': 'This is a datastream for measuring people traffic'},
-      		{'Description': 'This is a datastream for measuring shelf stock'}]}
+     		    [{'Description': 'This is a datastream for measuring people traffic'},
+      		    {'Description': 'This is a datastream for measuring shelf stock'}]}
 
 If you're using Python 2.7 (as we were), you can use the [Requests](http://docs.python-requests.org/en/latest/) library, which makes HTTP requests quite intuitive. It will look something like this:
 
