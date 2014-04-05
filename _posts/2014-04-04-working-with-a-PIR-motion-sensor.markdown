@@ -55,7 +55,7 @@ If the input of GPIO #18 is 1, then the sensor has been activated.  Otherwise, i
                     Previous_State=1
             time.sleep(0.01)      
     except KeyboardInterrupt:
-        GPIO.cleanup()
+	GPIO.cleanup()
 
 Since we are sending observations to the server in real time, this code allows us to send only when the PIR transition between steady and triggered states.  Since the sleep time is so small, it helps us avoid constant triggers during high movement periods or periods of complete rest, while still posting in real time.
 

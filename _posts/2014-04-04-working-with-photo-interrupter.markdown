@@ -54,6 +54,6 @@ This time, the steady state of the sensor would not rest at zero, but at one. Us
                 PSS = 1
          time.sleep(0.01)      
     except KeyboardInterrupt:
-        GPIO.cleanup()
+	GPIO.cleanup()
 
 And not only that - it allows us to post at both instances in time: when the switch was triggered, and when it returned to steady state. In other words - when the shelf became unfaced and when it was stocked up again.  Both of these transitions of state would be valuable information to a store owner.
