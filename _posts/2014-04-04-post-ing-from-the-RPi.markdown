@@ -13,6 +13,7 @@ excerpt: We went through a simple walkthrough of how to POST data to the SensorT
 We went through a simple walkthrough of [how to POST data to the SensorThings API data service]({{ site.baseurl }}/2014/03/31/posting-with-the-ogc-iot-sensorthings-api/). Now we'll look at the details for how we formatted and sent our data.
 
 A summary of the procedure is as follows:
+
 1. Create Thing with associated Datastreams
 2. Obtain URI (Unique Resource Identifier) of Thing
 3. Obtain assigned Datastream IDs
