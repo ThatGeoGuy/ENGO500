@@ -13,12 +13,12 @@ As much as we enjoyed [playing with sensors]({{ site.baseurl }}/2014/04/05/proto
 
 ##Plug In and Go
 
-During the development process, we found the most efficient way to get things done was to write code directly on the RaspberryPi itself.  This allowed us to test the sensor functions via GPIO library as we went along, but also required us to view the display via HDMI cable.  
+During the development process, we found the most efficient way to get things done was to write code directly on the RaspberryPi itself.  This allowed us to test the sensor functions and GPIO libraries as we went along, but also required us to view the display via HDMI cable.  
 
 Now that the sensors have been tested and are [fully operational](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTmiml_wmLBeANGy9MOW8lsaHuxwfXtIpNuorQbyMOTvaHW8P4s), there is no longer a need to view the screen or interact with the interface at all, on the conditions that we:
  
-* Can run the code automatically 
-* Are given some sort of confirmation that the system is running error free.
+1. Can run the code automatically 
+2. Are given some sort of confirmation that the system is running error free.
 
 
 ##Run On Start Up
@@ -57,7 +57,7 @@ The second condition as listed above was satisfied by setting an LED to blink on
 
 ![LED diagram]({{ site.baseurl }}/images/sensors/ledp.PNG)
 
-The GPIO pin used was pin #4 in terms BCM references, and it was set up in much the same way as the GPIO pins [#17]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/) and [#18]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/), except it was set to output rather than input.
+The GPIO pin used was pin #4 in terms BCM references, and it was set up in much the same way as the [GPIO pins #17]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/) and [#18]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/), except it was set to output rather than input.
 
 After that, all we had to do was tell it when to light up using the following line:
 
@@ -65,4 +65,4 @@ After that, all we had to do was tell it when to light up using the following li
 
 The blinking of the LED is positioned effectively in the script to ensure that the prototype is not only collecting data, but also posting it to the SensorThings API data service as well. 
 
-![LED]({{ site.baseurl }}/images/sensors/ledx.JPG)
+![LED]({{ site.baseurl }}/images/sensors/ledx.jpg)
