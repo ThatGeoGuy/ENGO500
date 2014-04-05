@@ -18,7 +18,7 @@ A summary of the procedure is as follows:
 3. Obtain assigned Datastream IDs
 4. Post Observations, linked to the appropriate Datastream
 
-**Step 1: Create Thing **
+**Step 1: Create Thing**
 
 Before sending observations to the data service, it's necessary to create the appropriate Thing and Datastream. After this has been created, it doesn't need to be created again.
 
