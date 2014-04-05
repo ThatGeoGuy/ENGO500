@@ -19,7 +19,7 @@ Making GET requests, in general, is easier than making POST requests. We are ess
 
 You'd construct the URL -- based on our example values -- as follows:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(7)/Datastreams(12)/Observations
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(7)/Datastreams(12)/Observations
 
 (Don't forget to change your root URI as appropriate!)
 
@@ -29,14 +29,14 @@ However, the data service has functionality for filtering -- you can read up on 
 
 For our purposes, we used two of the possible filter capabilities. The first one was to filter ResultValue, so that we could get only Observations with a ResultValue property of 1. (This made it easier to render the store traffic statistics, as discussed in [another post](http://thatgeoguy.github.io/ENGO500/2014/04/04/front-end-development-store-viewer/).) To do this, you make a GET request to the following URL:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(7)/Datastreams(12)/Observations?$filter= ResultValue eq '1'
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(7)/Datastreams(12)/Observations?$filter= ResultValue eq '1'
 
 The second filtering capability we used was filtering by time. For example, if you want observations after 12:00 noon on April 4, 2014, you would use the following URL:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=Time ge STR_TO_DATE('2014-04-04t12:00:00-0600','%Y-%m-%dt%H:%i:%s')
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=Time ge STR_TO_DATE('2014-04-04t12:00:00-0600','%Y-%m-%dt%H:%i:%s')
 
 The "ge" stands for greater than or equal to and "eq" from the previous URL stands for equal to (as you may have guessed). You can also combined multiple filters, simply by adding "and" to your URL:
 
-	http://demo.student.geocens.ca:8080/SensorThings_V1.0_students/Observations?$filter=Time ge STR_TO_DATE('2014-04-04t12:00:00-0600','%Y-%m-%dt%H:%i:%s') and Time le STR_TO_DATE('2014-04-05t12:00:00-0600','%Y-%m-%dt%H:%i:%s')
+    http://demo.student.geocens.ca:8080/SensorThings_V1.0_students/Observations?$filter=Time ge STR_TO_DATE('2014-04-04t12:00:00-0600','%Y-%m-%dt%H:%i:%s') and Time le STR_TO_DATE('2014-04-05t12:00:00-0600','%Y-%m-%dt%H:%i:%s')
 
-This request would get all observations between 12:00 noon on April 4 and 12:00 noon on April 5.
+This request would get all observations between 12:00 noon on April 4 and 12:00 noon on April 5. We used these two types of filters in order to update our observations without pulling ridiculously large objects.
