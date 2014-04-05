@@ -4,12 +4,12 @@ layout: post
 title: Improving Prototype Usability
 author: Alexandra Cummins
 
-excerpt: Ultimately, as much as we enjoyed messing with sensors all day, the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a store manager - can just plug it in and go.
+excerpt: As much as we enjoyed messing with sensors, the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a store manager - can just plug it in and go.
 ---
 # Improving Prototype Usability
 <p class='blog-post-meta'>{{ page.date | date: "%Y-%m-%d" }} by {{ page.author }}</p>
 
-Ultimately, as much as we enjoyed [messing with sensors all day]({{ site.baseurl }}/2014/04/05/prototype-development-hardware/), the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a [store manager]({{ site.baseurl }}/2014/04/04/front-end-development-store-viewer/) - can just plug it in and go.
+Ultimately, as much as we enjoyed [playing with sensors]({{ site.baseurl }}/2014/04/05/prototype-development-hardware/), the LASS prototype wasn't supposed to be used only by the developers. This post considers the steps we took to make our prototype as hands free as possible, so that the user - potentially a [store manager]({{ site.baseurl }}/2014/04/04/front-end-development-store-viewer/) - can just plug it in and go.
 
 ##Plug In and Go
 
@@ -26,10 +26,12 @@ Now that the sensors have been tested and are [fully operational](https://encryp
 To run the sensor scripts automatically without help of any screen, mouse, or keyboard, we set the scripts to run on start up.  This was completed via the following steps in terminal:
 
 1. Create a folder in which to store the auto running script
+
 	mkdir./bin
 	cd ./bin
 
 2. Create and edit the script
+
 	sudo nano script_auto_run
 	#!/bin/bash
 	# Script to start our application
@@ -37,9 +39,11 @@ To run the sensor scripts automatically without help of any screen, mouse, or ke
 	sudo ...path.a & 
 
 3. Making the script executable
+
 	sudo chmod 755 script_auto_run
 
 4. Setting the script to run
+
 	sudo nano /etc/rc.local
 	add this line:
 	/home/pi/bin/script_auto_run
@@ -56,7 +60,9 @@ The second condition as listed above was satisfied by setting an LED to blink on
 The GPIO pin used was pin #4 in terms BCM references, and it was set up in much the same way as the GPIO pins [#17]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/) and [#18]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/), except it was set to output rather than input.
 
 After that, all we had to do was tell it when to light up using the following line:
+
 	GPIO.output(GPIO_LED,True)
+
 The blinking of the LED is positioned effectively in the script to ensure that the prototype is not only collecting data, but also posting it to the SensorThings API data service as well. 
 
 ![LED]({{ site.baseurl }}/images/sensors/ledx.JPG)
