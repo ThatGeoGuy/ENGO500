@@ -12,7 +12,7 @@ excerpt: In addition to tracking customer movement, we also wanted to be able to
 
 In addition to tracking customer movement, we also wanted to be able to tell if the shelf was 'faced' or not.  We chose to use a [Photo Interrupter](https://www.sparkfun.com/products/9299) to complete this task.
 
-This small sensor has [five pins](https://www.sparkfun.com/datasheets/Components/GP1A57HRJ00F.pdf) and sits directly in the breadboard.  It works by shooting a beam of light between its two prongs. When an object is placed between the prongs, the path of light is blocked, and the detector reads zero.  Otherwise, it reads one. We plan to use these sensors with self-facing shelves as discussed [here]({{ site.baseurl }}/2014/04/03/development-process-technical-deliverables-progress-report/).
+This small sensor has [five pins](https://www.sparkfun.com/datasheets/Components/GP1A57HRJ00F.pdf) and sits directly in the breadboard.  It works by shooting a beam of light between its two prongs. When an object is placed between the prongs, the path of light is blocked, and the detector reads zero.  Otherwise, it reads one. 
 
 ##Wiring
 Since the Photo Interrupter is pretty much symmetrical, it is important to note that the data sheet diagram shows the sensor FROM ABOVE (as confirmed by the small and barely noticeable capacitor icon on the tip of one if the prongs).  Mixing this up has the potential to result in roasted equipment.
