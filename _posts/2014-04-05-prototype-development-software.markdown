@@ -11,11 +11,11 @@ excerpt: The sensor prototype for LASS has a few software requirements of its ow
 
 The sensor prototype for LASS has a few software requirements of its own.  This post details the [use cases we set out for it](https://github.com/ThatGeoGuy/ENGO500/wiki/Use-Cases) and how they were fulfilled.
 
-If you are unfamiliar with the term "use case", it is simply a way of defining the [input and output relationships between elements in a system]({{ site.baseurl }}/2014/04/05/development-process-technical-deliverables-progress-report/).  An overview of the sensor prototype's relationships is shown by the diagram below:
+If you are unfamiliar with the term "use case", it is simply a way of defining the [input and output relationships between elements in a system]({{ site.baseurl }}/2014/04/03/development-process-technical-deliverables-progress-report/).  An overview of the sensor prototype's relationships is shown by the diagram below:
 
 ![Prototype Use Cases]({{ site.baseurl }}/images/sensors/Sensor_Prototype_use_case_diagram.png)
 
-Ultimately, the RaspberryPi (microcontroller) should be able to send the data collected from the sensor to the OGC-IoT database, after which it will be access and displayed nicely on the [web page]({{ site.baseurl }}/2014/04/05/development-process-technical-deliverables-progress-report/).
+Ultimately, the RaspberryPi (microcontroller) should be able to send the data collected from the sensor to the OGC-IoT database, after which it will be access and displayed nicely on the [web page]({{ site.baseurl }}/2014/04/03/development-process-technical-deliverables-progress-report/).
 
 
 ## Use Cases Fulfilled
@@ -47,9 +47,9 @@ Below is the 'sendObs()' class entity as discussed in use case 1.1.  In addition
 
 **1.3 Identify Sensors**
 
-The sensors and microcontrollers were recognised ad given a unique ID so that their datastreams may be distinguished even after it is formatted and updated to the database.
+The sensors and microcontrollers were recognized ad given a unique ID so that their datastreams may be distinguished even after it is formatted and updated to the database.
 
-The microcontrollers were given their own names during setup, but were also assigned a specific object number as set out by the OGC SensorThingsAPI [general data model]({{ site.baseurl }}/2014/04/04/using-the-data-model/).  Each microcontroller became a seperate 'thing' entity in the data model. The general data model also permitted the creation of several 'datastreams' for each 'thing', so that multiple sensor data from the same microcontroller is distiguishable. The following demonstrates the creation of a 'thing' with two datastreams.
+The microcontrollers were given their own names during setup, but were also assigned a specific object number as set out by the OGC SensorThingsAPI [general data model]({{ site.baseurl }}/2014/04/04/using-the-data-model/).  Each microcontroller became a separate 'thing' entity in the data model. The general data model also permitted the creation of several 'datastreams' for each 'thing', so that multiple sensor data from the same microcontroller is distinguishable. The following demonstrates the creation of a 'thing' with two datastreams.
 
     url = self.rootURI() + 'Things'
     payload = {'Description': 'This is the real TurboCat (Raspberry Pi)',
@@ -71,10 +71,11 @@ To avoid creating a new set of 'things' and 'datastreams' every time we ran the 
             # create thing to identify microcontroller
     #continue with script
 
-As shown by the pseudocode above, if it finds that a URL exists and does not return a 404 error, it will continue to identify the microcontroller as that 'thing'.  Otherwise, if the URL is not found, it will wipe the text files and create a new 'thing' to identify the microcontroller.  This feature was particularily useful during the testing phase in which the webserver we were provided with was being intermittently reset.
+As shown by the pseudo code above, if it finds that a URL exists and does not return a 404 error, it will continue to identify the microcontroller as that 'thing'.  Otherwise, if the URL is not found, it will wipe the text files and create a new 'thing' to identify the microcontroller.  This feature was particularly useful during the testing phase in which the webserver we were provided with was being intermittently reset.
 
 
 **1.4 Send data to the micro-controller**
+
 Observations from a sensor will be acknowledged by the microcontroller and stored for use cases 1.2 and 1.1.
 
 This use case was fulfilled through the functionalities of the GPIO library and sensor functions.  Details can be viewed in my previous posts about [working]({{ site.baseurl }}/2014/04/04/working-with-a-PIR-motion-sensor/) with [sensors]({{ site.baseurl }}/2014/04/04/working-with-photo-interrupter/).
