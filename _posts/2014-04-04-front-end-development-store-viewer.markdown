@@ -41,9 +41,9 @@ Shown below is a screenshot of the system with some active observations being di
 
 As you can see in the screenshot above, there are 4 different types observation representations being displayed. The left pane shows overall statistics, and the right pane shows a real-time representation of the store.
 
-For real time-stats, there are two ways to display observations. The first type of observation that is visualized is an empty or full section. Full sections appear blue, and empty sections appear purple, as shown by label 1. The second type of observation that is visualized is traffic within an asile. This is represented by a 'heat map'. When someone walks past a sensor, an orange section is displayed, as shown by label 2.
+For real time-stats, there are two ways to display observations. The first type of observation that is visualized is an empty or full section. Full sections appear blue, and empty sections appear purple, as shown by label 1. The second type of observation that is visualized is traffic within an aisle. This is represented by a 'heat map'. When someone walks past a sensor, an orange section is displayed, as shown by label 2.
 
-For the overall statistics, there are also two ways of displaying information. The first is an overall level of traffic within the store, shown by label 3. This takes the number of readings from all motion sensors for an epoch in time and dispays them in a bar graph that updates as new epochs become available. The second is an overall stock level, shown by label 4. It calculates the overall stock level by taking the number of full and empty sections for each epoch.
+For the overall statistics, there are also two ways of displaying information. The first is an overall level of traffic within the store, shown by label 3. This takes the number of readings from all motion sensors for an epoch in time and displays them in a bar graph that updates as new epochs become available. The second is an overall stock level, shown by label 4. It calculates the overall stock level by taking the number of full and empty sections for each epoch.
 
 ### Technical Challenges
 
@@ -57,4 +57,4 @@ The overall statistics, being a more standard use of D3.js, were completed by re
 
 #### Displaying Real-time Observations
 
-Once the observations become available, displaying the observations with d3.js is straightforward. Changing the color for an empty of full shelf is just a matter of changing the fill color of the SVG. The heat map works by creating a 0% opacity rectangle SVG element that is positioned relative to the section that contains the motion sensor. If the motion sensor detects motion, the opacity is increased and then decreases slowly back to 0% using a timer.
+Once the observations become available, displaying the observations with d3.js is straightforward. Changing the color for an empty or full shelf is just a matter of changing the fill color of the SVG. The heat map works by creating a 0% opacity rectangle SVG element that is positioned relative to the section that contains the motion sensor. If the motion sensor detects motion, the opacity is increased and then decreases slowly back to 0% using a timer.
