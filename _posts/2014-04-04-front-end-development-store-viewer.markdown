@@ -27,6 +27,9 @@ The Store Viewer page uses the `shelves` array created in the Store Layout Creat
 2.6 - See if products are faced
 : Using the observations obtained from use case 2.4, stock levels are displayed in two ways. The first is by showing which sections are empty, and the second is showing an overall stock level for the store.
 
+2.7 - Show map UI
+: The data acquired from fulfilling use cases 2.4-2.6 are displayed in one cohesive user interface, the Store Viewer page.
+
 ## Enabling Technologies
 
 Similar to the [Store Layout Creator]({{ site.url }}/ENGO500/2014/04/04/development-details-store-layout-creator/), the Store Viewer relies on a few different technologies. First, the user interface uses the [bootstrap](http://getbootstrap.com) front end framework for positioning and styling. Also [D3.js](http://d3js.org/) is used to visualize the store, observations, and statistics. To simplify GET requests and the JavaScript necessary to merge all of these technologies together, [jQuery](http://jquery.com/) was utilized.
