@@ -2,7 +2,7 @@
 
 layout: post
 title: Front End Development - Store Viewer
-author: Ben Trodd
+author: Ben Trodd (and Kathleen Ang)
 publish: false
 
 excerpt: The Store Viewer page uses the `shelves` array created in the Store Layout Creator to display observations on a map user interface. Additionally, some statistics are shown to give an overall feel of the status of the store. Observations are pulled from a database in real-time so that the Store Viewer displays temporally relevant information. In this post, we talk about the development details of the Store Viewer.
@@ -50,6 +50,36 @@ For the overall statistics, there are also two ways of displaying information. T
 This section details some of the challenges encountered in building the Store Viewer. It serves to explain the inner workings of the system to guide anyone that wishes to use or modify our code.
 
 #### Getting Observations Asynchronously
+
+One of the challenges we ran into was managing the many GET requests being made from the website. When dealing with multiple sections, we were making requests for each individual section and the response latency sometimes shifted the way that observations were rendered. To deal with this at first, we set all of our requests to be done synchronously; however, we soon found that this created significant lag in response to simple things like navigating to a different page.
+
+To make the asynchronous requests work, we created a separate function containing the GET request itself, which would also take in arguments for the shelf and section indices. This took care of the latency issue. (Sometimes, the response for one section would be drawn onto a different section because of the time lag). Here is an example of that code:
+
+	function doGet(shelfInd, sectionInd, URL, type) {
+		jQuery.get(URL, function ( data, textStatus, xhr ) {
+			if(xhr.status < 400){
+				shelves[shelfInd].sections[sectionInd].obs = data;
+				//Call function to render observations
+			}
+		});
+	}
+	
+	// "Main" script
+	for( var i = 0; i < shelves.length; i++ )	{
+		for( var j = 0; j < shelves[i].sections.length; j++){
+			// Set the url depending on what type of observation it is
+			if (obsType == "motion"){ // PIR Motion sensor
+				var obsURL = shelves[i].sections[j].pirURL;
+			} else if (obsType == "stock"){ // Photo interrupter
+				var obsURL = shelves[i].sections[j].pintURL;
+			}
+
+			if( obsURL != null ){
+				// Pass the variables of the get to a function so that indices don't get borked
+				doGet(i,j, obsURL, obsType);
+			}
+		}
+	}
 
 #### Displaying Overall Statistics
 
