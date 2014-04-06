@@ -46,7 +46,7 @@ We can break the above schema down as follows:
 * `hash` is the hash of the user's password hashed with the corresponding cryptographic salt. For the purposes of generating this and the corresponding `salt` parameter used above, we opted to not implement our own cryptography, so we use the wonderful [pwd](https://www.npmjs.org/package/pwd) module available through NPM. 
 * `userData` is a string that defines a JSON object, of which constitutes the data that is saved from the [Layout Creator Tool]({{ site.baseurl }}/2014/04/02/using-lass-store-layout-creator/)
 
-From this, we then defined two functions in particular, `signup` and `isValidUserPassword`, which were used to register new users, and validate user passwords respectively. Since the code is openly available on [Github](https://github.com/ThatGeoGuy/ENGO500-Webserver), but see the following implementation for `isValidUserPassword` below as a reference:
+From this, we then defined two functions in particular, `signup` and `isValidUserPassword`, which were used to register new users, and validate user passwords respectively. While the code is openly available on [Github](https://github.com/ThatGeoGuy/ENGO500-Webserver), the following implementation for `isValidUserPassword` below is provided as a reference:
 
     UserSchema.statics.isValidUserPassword = function(username, password, done) { 
         this.findOne({ username: username }, function(err, user) { 
