@@ -34,7 +34,7 @@ The Store Viewer page uses the `shelves` array created in the Store Layout Creat
 
 Similar to the [Store Layout Creator]({{ site.url }}/ENGO500/2014/04/04/development-details-store-layout-creator/), the Store Viewer relies on a few different technologies. First, the user interface uses the [bootstrap](http://getbootstrap.com) front end framework for positioning and styling. Also [D3.js](http://d3js.org/) is used to visualize the store, observations, and statistics. To simplify GET requests and the JavaScript necessary to merge all of these technologies together, [jQuery](http://jquery.com/) was utilized.
 
-## Store Layout Creator Architecture
+## Store Viewer Architecture
 
 Shown below is a screenshot of the system with some active observations being displayed:
 
